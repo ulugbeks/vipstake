@@ -1,0 +1,21 @@
+<div class="tab__item">
+   <div class="ui__form-row">
+       <label for="">Tab name</label>
+       <input value="{{ tab.name ?? '' }}" type="text" name="options[{{ option.id }}][__INDEX__][name]">
+   </div>
+
+    <div class="ui__form-row">
+        <label for="">Services</label>
+        <div class="cb-group">
+            {% for service in services %}
+                <div class="cb">
+                    <input {% if tab.services is defined and service.id in tab.services %}checked{% endif%} id="s-__INDEX__-{{ service.id }}" type="checkbox" value="{{ service.id }}"
+                           name="options[{{ option.id }}][__INDEX__][services][]">
+                    <label for="s-__INDEX__-{{ service.id }}">{{ service.title }}</label>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="delete"><img src="{{ asset('admin/img/trash.svg') }}" alt=""></button>
+</div>
+

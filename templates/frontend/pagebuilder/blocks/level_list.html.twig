@@ -1,0 +1,8 @@
+<ul class="level-list">
+    {% for line in data %}
+        <li>
+            <p><span>{{ line.caption }}</span></p>
+            <p>{{ line.text }}</p>
+        </li>
+    {% endfor %}
+</ul>

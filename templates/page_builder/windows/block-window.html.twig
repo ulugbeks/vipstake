@@ -1,0 +1,15 @@
+<div class="pb__blocks-window" id="pb-block-add">
+
+    <div class="pb__layouts">
+        <h2>Select Block</h2>
+        <div class="close">&times;</div>
+
+        <div class="pb__layout-variants">
+            {% for block in pageBuilder.blocks %}
+                <div class="pb__layout-button" data-name="{{ block.name }}">
+                    {{ block.label }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

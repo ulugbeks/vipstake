@@ -1,0 +1,27 @@
+<section class="vip">
+    <div class="vip__container container">
+        <div class="vip__content info">
+            <div class="vip__content-text">
+                <h2 class="vip__content-title">
+                    {{ fields.vr.h | raw }}
+                </h2>
+                <p class="vip__content-desc">
+                   {{ fields.vr.text | raw }}
+                </p>
+            </div>
+
+            <a href="{{ path('frontend_review_listing') }}" class="vip__content-btn button purple">
+                <span> VIP Programs Review</span>
+            </a>
+
+        </div>
+        <ul class="vip__list">
+            {% for item in fields.vr.ib %}
+                <li class="vip__list-item {% if loop.index == 2 %}blue{% else %}purple{% endif %}">
+                    <h3 class="vip__list-item--title">{{ item.c | raw }}</h3>
+                    <p class="vip__list-item--desc">{{ item.t | raw }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

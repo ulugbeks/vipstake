@@ -1,0 +1,204 @@
+
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  padding: 1px;
+  border-radius: 100px;
+
+
+  border: none;
+  @include transition();
+  color: #fff;
+  @include font-button(small);
+
+  & span{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    padding: 0 24px;
+    background: transparent;
+    border-radius: 100rem;
+  }
+}
+//sizes mixins.scss
+
+@mixin button-large() {
+  height: 64px;
+  padding: 2px;
+  & span {
+    @include font-button(large);
+    padding: 0 56px;
+  }
+}
+
+@mixin button-medium() {
+  height: 48px;
+  padding: 2px;
+  & span {
+    padding: 0 48px;
+    @include font-button(medium);
+  }
+}
+
+@mixin button-small() {
+  & span {
+    padding: 0 24px;
+    @include font-button(small);
+  }
+}
+
+@mixin button-micro() {
+  height: 32px;
+  & span {
+    padding: 0 16px;
+    @include font-button(micro);
+  }
+}
+//colors
+.button{
+  &.orange {
+     background: $gr-btn-3-stroke;
+    & span{
+       background: $gr-btn-3-default;
+    }
+    &:hover{
+      & span{
+         background: $gr-btn-3-hover;
+      }
+    }
+  }
+  &.red {
+     background:   $gr-btn-1-stroke;
+    & span{
+       background:$gr-btn-1-default;
+    }
+    &:hover{
+      & span{
+         background: $gr-btn-1-hover;
+      }
+    }
+  }
+  &.purple {
+     background: $gr-btn-2-stroke;
+    & span{
+       background:$gr-btn-2-default ;
+    }
+    &:hover{
+      & span{
+         background: $gr-btn-2-hover;
+      }
+    }
+  }
+  &.green {
+    background:  $gr-btn-4-stroke;
+    & span{
+      background: $gr-btn-4-default;
+    }
+    &:hover{
+      & span{
+        background: $gr-btn-4-hover;
+      }
+    }
+  }
+  &.black {
+    color: $cl-neutral-100;
+    background: $cl-neutral-900;
+    &:hover{
+      color: $cl-neutral-100;
+      background: #232323;
+    }
+  }
+  &.white {
+    color: $cl-neutral-900;
+    background: #D9D9D9;
+    &:hover {
+        background: $cl-neutral-100;
+      }
+  }
+  &.secondBlack {
+    color: $cl-neutral-100;
+    background: #303030;
+    &:hover{
+      background: $cl-neutral-800;
+    }
+  }
+}
+
+
+
+.button-outline {
+  @extend .button;
+  &.red,&.orange,&.purple,&.green{
+    & span{
+      background: $cl-neutral-900;
+    }
+  }
+}
+
+.button-icon{
+  @extend .button;
+  position: relative;
+  $size: 32px;
+  width: $size;
+  height: $size;
+  min-width: $size;
+  min-height: $size;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    $size: 20px;
+    width: $size;
+    height: $size;
+  }
+  @media screen and (min-width: 1512px) {
+    $size: 40px;
+    width: $size;
+    height: $size;
+    min-width: $size;
+    min-height: $size;
+    &:before{
+      $size: 24px;
+      width: $size;
+      height: $size;
+    }
+  }
+}
+
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 2px 0;
+
+
+  color:  #FFF;
+
+  cursor: pointer;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-decoration-line: underline;
+  @include transition();
+  &:hover{
+    opacity: 0.8;
+    text-decoration-line: underline;
+  }
+}

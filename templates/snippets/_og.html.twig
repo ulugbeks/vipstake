@@ -1,0 +1,14 @@
+<meta property="og:locale" content="{{ app.request.locale }}">
+{% if updatedAt is not defined %}
+    <meta property="og:type" content="website">
+{% else %}
+    <meta property="og:type" content="article">
+    <meta property="article:modified_time" content="{% apply spaceless %}{{ updatedAt }}{% endapply %}">
+{% endif %}
+<meta property="og:title" content="{% apply spaceless %}{{ title is defined ? title : option('site_name') }}{% endapply %}">
+<meta property="og:description" content="{% apply spaceless %}{{ description is defined ? description : option('site_description', true) }}{% endapply %}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta property="og:site_name" content="{{ option('site_name') }}">
+<meta property="og:image"
+      content="{{ image is defined and image is not empty ? image : app.request.schemeAndHttpHost ~ asset('frontend/img/og.jpg') }}">
+<meta name="twitter:card" content="summary_large_image">

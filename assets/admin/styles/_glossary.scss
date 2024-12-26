@@ -1,0 +1,56 @@
+.glossary-modal{
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0, .3);
+  backdrop-filter: blur(3);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  display: none;
+
+  &.opened{
+    display: flex;
+  }
+}
+
+.glossary__item{
+  .value{
+    position: relative;
+
+    .locale{
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
+
+#add-glossary-item{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 4px;
+  min-width: 414px;
+
+  button{
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  input{
+    height: 42px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: #f6f9fb;
+    border: 1px solid #ccc;
+    padding: 9px 15px;
+    box-sizing: border-box;
+  }
+}

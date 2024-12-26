@@ -1,0 +1,11 @@
+<div class="table {% if block.data.style  is defined %}{% if block.data.style == 'table-2' %}table--top{% endif %}{% if block.data.style == 'table-3' %}table--left{% endif %}{% endif %}">
+    <table class="">
+        {% for row in block.data.content %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>

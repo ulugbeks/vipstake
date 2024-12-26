@@ -1,0 +1,37 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/frontend/runtime.js",
+        "/build/frontend/app.js"
+      ],
+      "css": [
+        "/build/frontend/app.css"
+      ]
+    },
+    "cta": {
+      "js": [
+        "/build/frontend/runtime.js",
+        "/build/frontend/cta.js"
+      ]
+    },
+    "tech": {
+      "js": [
+        "/build/frontend/runtime.js",
+        "/build/frontend/tech.js"
+      ]
+    },
+    "about": {
+      "js": [
+        "/build/frontend/runtime.js",
+        "/build/frontend/about.js"
+      ]
+    },
+    "lobby": {
+      "js": [
+        "/build/frontend/runtime.js",
+        "/build/frontend/lobby.js"
+      ]
+    }
+  }
+}

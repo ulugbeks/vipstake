@@ -1,0 +1,15 @@
+.pb__level-list-block{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  .level-list{
+    display: flex;
+    align-items: center;
+    width: unset;
+  }
+
+  .pb__button-add{
+    margin: 0 0 0 10px;
+  }
+}

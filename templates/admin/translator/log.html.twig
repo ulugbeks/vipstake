@@ -1,0 +1,17 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/translator/strings.html.twig' as parser %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% block head_buttons %}
+    {{ button.arhive(path('admin_translation_strings'), false, 'Strings') }}
+    {{ button.arhive(path('admin_translation_meta'), false, 'Dash') }}
+{% endblock %}
+
+{% block body %}
+    <div class="error-log">
+        {% for error in errors %}
+            <p>{{ error.createdAt | date('Y-m-d H:i:s') }} {{ error.message }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+

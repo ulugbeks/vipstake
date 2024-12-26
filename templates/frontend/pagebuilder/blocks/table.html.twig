@@ -1,0 +1,11 @@
+{% if data.options.style == 'color' %}
+    {% include 'frontend/pagebuilder/blocks/table_variants/color.html.twig' with {'table' : data.table} %}
+{% elseif data.options.style == 'bold' %}
+    {% include 'frontend/pagebuilder/blocks/table_variants/bold.html.twig' with {'table' : data.table} %}
+{% elseif data.options.alignment == 'center' %}
+    {% include 'frontend/pagebuilder/blocks/table_variants/centered.html.twig' with {'table' : data.table} %}
+{% elseif data.options.alignment == 'align-left' %}
+    {% include 'frontend/pagebuilder/blocks/table_variants/header-left.html.twig' with {'table' : data.table} %}
+{% else %}
+    {{ dump(data.options) }}
+{% endif %}

@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block sticky %}
+{% endblock %}
+
+{% block body %}
+    <form class="ui__form" action="{{ path('admin_seo_meta') }}" method="post">
+        {% for entity in seoEntities %}
+            {% set counter = loop.index0 %}
+
+            <div class="seo-meta__fields"
+                 data-fields-id="{{ counter }}">
+                <h2 class="field__group-name">{{ entity.label }}</h2>
+
+                <div class="ui__form-row">
+                    <label for="">Title</label>
+                    <input type="text" name="meta[{{ counter }}][title]"
+                           value="{% if entity.fields %}{{ entity.fields.title }}{% endif %}">
+                </div>
+
+                <div class="ui__form-row">
+                    <label for="">Description</label>
+                    <textarea name="meta[{{ counter }}][description]" id="" cols="30"
+                              rows="10">{% if entity.fields %}{{ entity.fields.description }}{% endif %}</textarea>
+                    <input type="hidden" name="meta[{{ counter }}][class]" value="{{ entity.class }}">
+                </div>
+            </div>
+        {% endfor %}
+
+        <button class="ui__button-primary" type="submit">Update</button>
+    </form>
+{% endblock %}

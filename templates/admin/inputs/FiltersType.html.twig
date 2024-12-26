@@ -1,0 +1,18 @@
+{% block filters_row %}
+    <label for="{{ full_name }}">{{ label }}</label>
+
+    {% set selected = get_ids(attr.data) %}
+
+    <div class="nice-cb">
+        {% set mainIndex = 0 %}
+        {% for group_label, choices in choices %}
+            <span class="group-label">{{ group_label }}</span>
+
+            {% for choice in choices %}
+                <input id="{{ id }}-{{ group_label }}-{{ loop.index0 }}" value="{{ choice.value }}" {% if choice.value in selected %}checked{% endif %} type="checkbox" class="" name="{{ full_name }}[{{ mainIndex }}]" }}>
+                <label for="{{ id }}-{{ group_label }}-{{ loop.index0 }}"> {{ choice.label}} </label>
+                {% set mainIndex = mainIndex + 1 %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

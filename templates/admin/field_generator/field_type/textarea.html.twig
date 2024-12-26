@@ -1,0 +1,6 @@
+{% if field is defined %}
+    <div class="ui__form-row">
+        <label for="{{ field.vars.id }}">{{ field.vars.label }}</label>
+        <textarea name="{{ field.vars.full_name }}" id="{{ field.vars.id }}">{{ value }}</textarea>
+    </div>
+{% endif %}

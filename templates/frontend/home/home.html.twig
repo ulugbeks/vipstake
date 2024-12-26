@@ -1,0 +1,38 @@
+{# Template: Home. #}
+
+{% extends 'frontend/layout/base.html.twig' %}
+
+{% block header %}
+    {% include 'frontend/layout/headers/default.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+{% endblock %}
+
+{% block body %}
+    <main>
+        {% include 'frontend/home/_hero.html.twig' %}
+        {% include 'frontend/home/_services.html.twig' %}
+        {% include 'frontend/home/_vip-review.html.twig' %}
+        {% include 'frontend/home/_slots.html.twig' %}
+        {% include 'frontend/home/_reward.html.twig' %}
+        {% include 'frontend/home/_cards.html.twig' %}
+        {% include 'frontend/home/_features.html.twig' %}
+        {% include'frontend/home/_faq.html.twig' %}
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app', null, 'frontend') }}
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ThrowPropsPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endblock %}

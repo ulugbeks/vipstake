@@ -1,0 +1,58 @@
+{% macro title(entity = null) %}
+    {% if entity %}
+        {% set seoMeta = seo_meta(entity) %}
+
+        {% if entity.seoTitle is defined and entity.seoTitle is not empty %}
+            {{ entity.seoTitle }}
+        {% elseif seoMeta and seoMeta.title is not empty %}
+            {{ seoMeta.title }}
+        {% elseif entity.title is defined %}
+            {{ option('site_name') }} - {{ entity.title }}
+        {% elseif entity.name is defined %}
+            {{ option('site_name') }} - {{ entity.name }}
+        {% endif %}
+    {% else %}
+        {{ option('site_name') }}
+    {% endif %}
+{% endmacro %}
+
+{% macro description(entity = null) %}
+    {% if entity %}
+        {% set seoMeta = seo_meta(entity) %}
+        {% if entity.seoDescription is defined and entity.seoDescription is not empty %}
+            {{ entity.seoDescription }}
+        {% elseif seoMeta %}
+            {{ seoMeta.description }}
+        {% else %}
+            {{ option('site_description', true) }}
+        {% endif %}
+    {% else %}
+        {{ option('site_description', true) }}
+    {% endif %}
+{% endmacro %}
+
+{% macro canonical(entity = null) %}
+    {% if entity.canonical is defined and entity.canonical %}
+        <link rel="canonical" href="{{ entity.canonical | to_https }}">
+    {% else %}
+        <link rel="canonical" href="{{ app.request.uri | to_https }}">
+    {% endif %}
+{% endmacro %}
+
+{% macro noindex(entity = null) %}
+    {% if entity %}
+        {% if entity.noindex is defined and entity.noindex or app.request.query.all is not empty %}
+            <meta name="robots" content="noindex{% if app.request.query.all is not empty %},nofollow{% endif %}">
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{#{% macro xdefault() %}#}
+{#    <link rel="alternate" href="{{ (app.request.schemeAndHttpHost ~ lang_route(app.request, app.request.locale)) | to_https }}" hreflang="x-default"/>#}
+{#{% endmacro %}#}
+
+{#{% macro hreflangs() %}#}
+{#    {% for locale in locales %}#}
+{#        <link rel="alternate" hreflang="{{ locale }}" href="{{ (app.request.schemeAndHttpHost ~ lang_route(app.request, locale)) | to_https }}">#}
+{#    {% endfor %}#}
+{#{% endmacro %}#}

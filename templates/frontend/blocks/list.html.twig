@@ -1,0 +1,7 @@
+{% set listType = block.data.style == 'ordered' ? 'ol' : 'ul' %}
+
+<{{ listType }} data-list='circle'>
+    {% for line in block.data.items %}
+        <li><span>{{ line }}</span></li>
+    {% endfor %}
+</{{ listType }}>

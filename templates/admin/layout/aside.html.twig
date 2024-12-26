@@ -1,0 +1,33 @@
+<button class="collapse">
+    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 1L0.999939 4.94647L5 8.89294" stroke="#8296AA" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+</button>
+
+<div class="brand">
+    <div class="logo">
+        <img src="{{ asset('admin/img/logo.svg') }}" alt="">
+    </div>
+{#    <div class="company">#}
+{#        <div class="name">#}
+{#            Admin UI#}
+{#        </div>#}
+{#        <div class="label">#}
+{#            Site admin panel#}
+{#        </div>#}
+{#    </div>#}
+</div>
+
+<nav class="ui__navigation">
+    <ul>
+        {% for item in sideNav() %}
+            <li>
+                <a href="{{ item.route }}" class="nav-item {{ (item.route in app.request.pathInfo) ? 'active' }}">
+                    {{ source('@public_path' ~ item.icon) }}
+                    <span class="label">{{ item.name }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

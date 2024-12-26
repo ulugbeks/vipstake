@@ -1,0 +1,66 @@
+{% extends 'admin/base.html.twig' %}
+{% import "admin/elements/lang-forms.html.twig" as a2lixTranslations %}
+{% import 'admin/elements/lang-switcher.html.twig' as switcher %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% block sticky %}
+    {% if review is defined %}
+        {{ button.preview(path('admin_review_pagebuilder', {'id' : review.id}), null, 'Page Builder') }}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(reviewForm, {'attr': {'class': 'ui__form'}}) }}
+    <div class="ui__2-col">
+        <div class="ui__2-col--main">
+            {{ form_row(reviewForm.title, {'attr': {'class': 'ui__form-row'}}) }}
+
+            <div class="table-fields">
+                <h2 class="field__group-name">Aside table fields</h2>
+
+                {{ form_row(reviewForm.rating, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.callToAction, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.siteUrl, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.exclusivePromos, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.payouts, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.depositLimits, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.personalVipManager, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.giftAndRewards, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.eventsInvitations, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.security, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.promoCode, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.gameVariety, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.customerSupport, {'attr': {'class': 'ui__form-row'}}) }}
+            </div>
+
+            <div class="table-fields">
+                <h2 class="field__group-name">Listing fields</h2>
+
+                {{ form_row(reviewForm.labels, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.listingText, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.oddsMargin, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.wagering, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.withdrawalTime, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.bonusMaxBet, {'attr': {'class': 'ui__form-row'}}) }}
+                {{ form_row(reviewForm.paymentLogos, {'attr': {'class': 'ui__form-row'}}) }}
+            </div>
+
+            {% include 'admin/elements/seo.html.twig' with {'form': reviewForm} %}
+        </div>
+        <div class="ui__2-col--aside">
+            {{ form_row(reviewForm.slug, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(reviewForm.status, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(reviewForm.createdAt, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(reviewForm.author, {'attr': {'class': 'ui__form-row'}}) }}
+            <div class="form__checkbox"  style="margin-bottom: 12px;">
+                {{ form_row(reviewForm.showInSlots) }}
+            </div>
+
+            {{ form_row(reviewForm.thumbnail, {'attr': {'data': reviewForm.vars.data.thumbnail ?? ''}}) }}
+
+            {% include 'admin/elements/form-controls.html.twig' with {'entity' : reviewForm.vars.data} %}
+        </div>
+    </div>
+
+    {{ form_end(reviewForm) }}
+{% endblock %}

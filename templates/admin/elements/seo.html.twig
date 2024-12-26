@@ -1,0 +1,22 @@
+{% import "admin/elements/lang-forms.html.twig" as a2lixTranslations %}
+
+<div class="form__seo">
+    <h2 class="field__group-name">SEO</h2>
+
+    {{ form_row(form.h1, {'attr': {'class': 'ui__form-row'}}) }}
+    {{ form_row(form.seoTitle, {'attr': {'class': 'ui__form-row'}}) }}
+    {{ form_row(form.seoDescription, {'attr': {'class': 'ui__form-row'}}) }}
+    {{ form_row(form.canonical, {'attr': {'class': 'ui__form-row'}}) }}
+
+
+    {% if form.noindex is defined %}
+    <div class="form__checkbox"  style="margin-bottom: 12px;">
+        {{ form_row(form.noindex) }}
+    </div>
+    {% endif %}
+    {% if form.nofollow is defined %}
+    <div class="form__checkbox">
+        {{ form_row(form.nofollow) }}
+    </div>
+    {% endif %}
+</div>

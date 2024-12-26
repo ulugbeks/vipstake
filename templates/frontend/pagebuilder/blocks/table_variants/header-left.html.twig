@@ -1,0 +1,41 @@
+<div class="horizontal-table">
+    {% set tableHead = table[0] %}
+    {% set tableBody = table | slice(1) %}
+    {% set tableHeadings = [] %}
+
+    {% for row in table %}
+        {% set tableHeadings = tableHeadings | merge([row[0]]) %}
+    {% endfor %}
+
+    <table>
+        <thead>
+        <tr>
+            {% for th in tableHead %}
+                <th>{{ th }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for tr in tableBody %}
+            <tr>
+                {% for td in tr %}
+                    {% if loop.first %}
+                        <th>{{ td }}</th>
+                    {% else %}
+                        <td>{{ td }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% set columnCount = table[0] | length %}
+    {% for i in 1..columnCount - 1 %}
+        <div>
+            {% for row in table %}
+                <p>{% if not loop.first %}<span>{{ tableHeadings[loop.index0] }}</span>{% endif %}{{ row[i] }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,21 @@
+<header class="header" data-action="header-wrapper">
+    <div class="header__container container">
+        {% include 'frontend/layout/headers/partials/_logo.html.twig' %}
+        {% include 'frontend/layout/headers/partials/_nav.html.twig' %}
+        <!-- ! button-->
+        <div class="menu__buttons">
+            <button data-support="true" type="button" class="menu__buttons--talk button white"><span>Let’s Talk!</span>
+            </button>
+            <button data-support="true" type="button" class="menu__buttons--deals button white"><span>Let’s Talk!</span>
+            </button>
+            {% if is_granted('IS_AUTHENTICATED') %}
+                <a href="{{ path('app_logout') }}" type="button" class="menu__buttons--login button white"><span>Log Out</span></a>
+            {% else %}
+                <button type="button" data-login="true" class="menu__buttons--login button white"><span>Log In</span></button>
+            {% endif %}
+            <button class="menu__burger button-icon secondBlack " aria-label="menu-burger" data-action="openModal">
+            </button>
+        </div>
+    </div>
+</header>
+{% include 'frontend/layout/headers/_login.html.twig' %}

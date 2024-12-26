@@ -1,0 +1,225 @@
+@use 'variables';
+@import "checkbox";
+
+.a2lix_translationsFields {
+  .toggle-lang {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.ui__form {
+  label {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: variables.$primaryText;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  input:not([type=checkbox]), textarea {
+    display: block;
+    width: 100%;
+    background: #fff;
+    border: 1px solid variables.$border;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: variables.$primaryText;
+
+    &:focus {
+      border-radius: 8px;
+      box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.2);
+    }
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    background: url('/public/admin/img/dropdown-arr.svg') no-repeat right 1rem center #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    appearance: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.2);
+    }
+  }
+
+
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 182px;
+  }
+
+  .ui__2-col--aside, .fieldSet {
+    .ui__form-row {
+      margin-bottom: 12px;
+    }
+
+    .ui__form-controls .ui__button-delete {
+      margin-left: 22px;
+      margin-right: 10px;
+    }
+
+    label {
+      margin-bottom: 6px;
+    }
+
+    input:not([type=checkbox]), textarea {
+      background: variables.$asideInput;
+      height: 42px;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    select {
+      font-size: 14px;
+      height: 42px;
+      padding: 8px 10px;
+      background: url('/public/admin/img/dropdown-arr.svg') no-repeat right 1rem center variables.$asideInput;
+    }
+
+    [type=date], [type=time] {
+      margin-bottom: 4px;
+    }
+  }
+
+  .fieldSet {
+    .ui__form-row:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.ui__form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+
+  &.--hidden {
+    display: none !important;
+  }
+}
+
+.ui__form-controls {
+  padding-top: 16px;
+  border-top: 1px solid variables.$border;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  [type=submit] {
+    max-width: 200px;
+    width: 100%;
+    margin-right: 16px;
+  }
+
+  .ui__button-delete {
+    margin-right: 16px;
+  }
+}
+
+.remove-item {
+  display: block;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.form__checkbox {
+  [type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background: #fff;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: 0;
+    border: 0;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+      border: 0;
+    }
+
+    &:before {
+      width: 24px;
+      height: 24px;
+      content: '';
+      border: 1px solid variables.$border;
+      background: #fff;
+      border-radius: 4px;
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:checked:before {
+      content: url("/public/admin/img/check.svg");
+    }
+  }
+}
+
+.string-translation__form {
+  input {
+    height: 38px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  
+  .string-input{
+    position: relative;
+    .lang{
+      position: absolute;
+      top: 11px;
+      font-size: 12px;
+      font-weight: 500;
+      right: 10px;
+    }
+  }
+}
+
+.form__filter-variants{
+  hr{
+    height: 1px;
+    display: block;
+    width: 100%;
+    background: #ccc;
+    margin: 13px 0;
+  }
+  
+  .field-wrapper{
+    position: relative;
+  }
+
+  span.lang{
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    right: 12px;
+    bottom: 18px;
+  }
+
+  [type=text]{
+    margin-bottom: 4px;
+  }
+
+}

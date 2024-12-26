@@ -1,0 +1,9 @@
+<div class="ktdjzhyj">
+    {% for column in block.data.itemContent %}
+        <div class="column">
+            {% for childBlock in column.blocks %}
+                {% include 'frontend/blocks/' ~ childBlock.type ~ '.html.twig' with {'block' : childBlock} %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

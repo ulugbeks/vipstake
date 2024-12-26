@@ -1,0 +1,10 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+pagebuilder:
+    resource:
+        path: ../src/PageBuilder/Controller/
+        namespace: App\PageBuilder\Controller
+    type: attribute

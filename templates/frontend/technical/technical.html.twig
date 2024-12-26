@@ -1,0 +1,32 @@
+{# Template: Technical. #}
+
+{% extends 'frontend/layout/base.html.twig' %}
+
+{% block header %}
+    {% include 'frontend/layout/headers/header_tech.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    {% set content = create_tech_page_content(page.content) %}
+    <main>
+        <div class="legal-document">
+            <h1 class="legal-document__title">{{ page.h1 ?? page.title }}</h1>
+            <div class="legal-document__wrapper">
+                <aside class="legal-document__fast-link">
+                    {% for link in content.links %}
+                        <a class="legal-document--link" href="#{{ link.id }}">{{ link.text }}</a>
+                    {% endfor %}
+                </aside>
+                <!--			list data-->
+                <div class="accordion legal-document__accordion">
+                   {{ content.content | raw }}
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('tech', null, 'frontend') }}
+{% endblock %}

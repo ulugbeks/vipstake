@@ -1,0 +1,20 @@
+<table class="colors-table">
+    {% set tableHead = table[0] %}
+    {% set tableBody = table | slice(1) %}
+    <thead>
+    <tr>
+        {% for th in tableHead %}
+            <th>{{ th }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for tr in tableBody %}
+        <tr>
+            {% for td in tr %}
+                <td>{% if not loop.first %}<span>{{ tableHead[loop.index0] }}</span>{% endif %}{{ td }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

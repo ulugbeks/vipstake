@@ -1,0 +1,13 @@
+@use "variables";
+
+html{
+  font-family: 'Montserrat', 'sans-serif';
+  color: variables.$primaryText;
+}
+
+h1{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 30px;
+}

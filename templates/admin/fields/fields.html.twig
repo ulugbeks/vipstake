@@ -1,0 +1,75 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% block sticky %}
+    {{ button.new('Add field', 'add-item') }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(fieldsForm, {'attr': {'class': 'ui__form'}}) }}
+    <div class="ui__2-col"
+         data-group-prototype="<div class='ui__form-row'><div class='children-container'></div></div>">
+        <div class="ui__2-col--main">
+            <div class="" id="fieldSet-wrapper">
+                {{ form_row(fieldsForm.fields_form.fieldSet ) }}
+            </div>
+
+            {{ button.new('Add field', 'add-item') }}
+        </div>
+        <div class="ui__2-col--aside">
+            <div class="ui__form-row">
+                {{ form_row(fieldsForm.fields_group_form.name, {'attr': {'class': 'ui__form-row'}}) }}
+            </div>
+            <div class="ui__form-row">
+                {{ form_row(fieldsForm.fields_group_form.ruleType, {'attr': {'class': 'ui__form-row fields__relation-type'}}) }}
+            </div>
+            {{ form_row(fieldsForm.fields_group_form.ruleValue, {'attr': {'class': 'ui__form-row'}}) }}
+            {% include 'admin/elements/form-controls.html.twig' with {'entity' : fieldsForm.fields_group_form.vars.data} %}
+        </div>
+    </div>
+
+    <input name="fi" type="hidden" value="{{ fieldsGroup }}">
+
+    {% include 'admin/elements/form-controls.html.twig' with {'entity' : fieldsForm.vars.data} %}
+    {{ form_end(fieldsForm) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.add-item').click(function () {
+                var collectionHolder = $('.fieldSet-collection');
+                var prototype = collectionHolder.attr('data-prototype');
+                var index = $(document).find('.fieldSet').length;
+                var newForm = prototype.replace(/__name__/g, index);
+                collectionHolder.append(newForm);
+                let loopIndex = 1;
+
+                $(document).find('.fieldSet').each(function () {
+                    $(this).find($('[name*="[position]"]')).val(loopIndex)
+                    loopIndex += 1;
+                })
+            });
+            $(document).on('click', '.remove-item', function () {
+                let loopIndex = 1;
+                console.log('kek')
+                $(this).closest('.fieldSet').remove();
+
+                $(document).find('.fieldSet').each(function () {
+                    $(this).find($('[name*="[position]"]')).val(loopIndex)
+                    loopIndex += 1;
+                })
+            });
+            $(document).on('click', '.fieldSet .collapse', function () {
+                $(this).closest('.fieldSet').toggleClass('collapsed');
+            })
+            $('.fieldSet').each(function () {
+                const parent = $(this).attr('data-childof');
+                if (parent) {
+                    $(this).detach().appendTo('[data-parent="' + parent + '"]');
+                }
+            })
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,51 @@
+@import "fonts";
+@import 'utils/normalize';
+@import 'utils/variables';
+@import 'utils/scrollbar';
+@import 'utils/mixin';
+@import 'utils/reset';
+@import 'utils/base';
+
+// ? components
+@import 'components/container';
+@import 'components/accordion';
+@import 'components/button';
+@import 'components/input';
+//@import 'components/modal';
+//@import 'components/select';
+//main
+
+
+// ! index page
+@import "pages/index/hero";
+@import "pages/index/service";
+@import "pages/index/vip";
+@import "pages/index/slot";
+@import "pages/index/reward";
+@import "pages/index/cards";
+@import "pages/index/features";
+@import "pages/index/faq";
+// ! index page
+@import "pages/cta/cta";
+// ! about us
+@import "pages/about-us/hero-about";
+@import "pages/about-us/out-mission";
+@import "pages/about-us/benefits-about";
+@import "pages/about-us/we-are";
+@import "pages/about-us/askedFAQ";
+@import "pages/about-us/contact-about";
+// ! 404
+@import "pages/not-fount";
+// ! private policy
+@import "pages/private-policy";
+// ! review-lobby
+@import "pages/review-lobby/review-lobby-header";
+@import "pages/review-lobby/review-lobby-list";
+
+
+// header footer
+@import 'components/header';
+@import 'components/login-modal';
+@import 'components/footer';
+
+

@@ -1,0 +1,20 @@
+<table class="table-two-cl">
+    {% set tableHead = table[0] %}
+    {% set tableBody = table | slice(1) %}
+    <thead>
+    <tr>
+        {% for th in tableHead %}
+            <th>{{ th }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for tr in tableBody %}
+        <tr>
+            {% for td in tr %}
+            <td>{{ td }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

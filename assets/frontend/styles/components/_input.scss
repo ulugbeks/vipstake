@@ -1,0 +1,100 @@
+.input {
+  position: relative;
+  width: 100%;
+
+  &.password svg {
+    cursor: pointer;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  & svg {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+
+  &.icon .input-field, .password .input-field {
+    padding: 15px 40px 15px 16px;
+  }
+}
+
+.input-field {
+  color-scheme: dark;
+  width: 100%;
+  border-radius: 16px;
+  padding: 15px 16px;
+  border: solid 1.5px $cl-neutral-400;
+  background: none;
+
+  color: $cl-neutral-600;
+  @include font-body(small-bold);
+  &::placeholder{
+    @include font-body(small-bold);
+  }
+  letter-spacing: 0.5px;
+
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-label {
+  position: absolute;
+  left: 15px;
+  color: $cl-neutral-400;
+  pointer-events: none;
+  transform: translateY(15px);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include font-body(small-bold);
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+  -webkit-box-shadow: 0 0 0 1000px $cl-neutral-900 inset;
+}
+
+
+.input-field:focus, input:valid {
+  color: #FFF;
+}
+
+.input-field.error{
+  border-color: #C40C0C!important;
+}
+
+.error-text{
+  color: #C40C0C;
+  text-align: center;
+}
+
+.input-field:focus {
+  outline: none;
+  border: 1.5px solid $cl-neutral-100;
+}
+
+.input-field:focus ~ label {
+  transform: translate(-10px, -50%) scale(0.8);
+  background-color: $cl-neutral-900;
+  padding: 0 .2em;
+  color: $cl-neutral-100;
+}
+
+.input-field:focus ~ label, input:valid ~ label {
+  transform: translate(-10px, -50%) scale(0.8);
+  background-color: $cl-neutral-900;
+  padding: 0 .2em;
+  color: $cl-neutral-400;
+}
+
+.input-field:valid {
+  border: 1px solid $cl-neutral-400;
+}
+
+

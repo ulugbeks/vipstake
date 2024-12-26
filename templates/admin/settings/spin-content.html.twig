@@ -1,0 +1,27 @@
+<style>
+    .content{
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="content">
+    <div class="test-content" style="margin-top: 80px; background: #fff; padding: 40px;">
+        {% if content is defined and content is not empty %}
+            {{ encore_entry_link_tags('app', null, 'frontend') }}
+            {% include 'frontend/city/_content.html.twig' with {'content' : content} %}
+        {% endif %}
+        {% if faq is defined and faq is not empty %}
+            {% include 'frontend/partials/faq.html.twig' with {'faq' : faq} %}
+        {% endif %}
+    </div>
+
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
+
+    <script type="application/javascript">
+        $('.faq__item').on('click', function () {
+            $(this).toggleClass('active');
+            $(this).find('.faq__answer').slideToggle(300);
+        })
+    </script>
+</div>

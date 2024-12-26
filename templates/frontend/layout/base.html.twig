@@ -1,0 +1,66 @@
+{% import 'snippets/_seo.html.twig' as seo %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if app.request.get('_route') %}
+        <title>{% apply spaceless %}{% block title %}{{ seo.title() }}{% endblock %}{% endapply %}</title>
+        <meta name="description"
+              content="{% apply spaceless %}{% block description %}{{ seo.description() }}{% endblock %}{% endapply %}">
+        {% block canonical %}
+            {{ seo.canonical() }}
+        {% endblock %}
+        {% block noindex %}
+            {{ seo.noindex() }}
+        {% endblock %}
+        {% block og %}
+            {% include 'snippets/_og.html.twig' %}
+        {% endblock %}
+    {% endif %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app', null, 'frontend') }}
+    {% endblock %}
+    {% block custom_meta %}
+    {% endblock %}
+
+    <!-- Start of betcare Zendesk Widget script -->
+    <script id="ze-snippet"
+            src="https://static.zdassets.com/ekr/snippet.js?key=38d7e7df-d930-4bed-8510-28a3b1040945">
+    </script>
+    <!-- End of betcare Zendesk Widget script -->
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block header %}
+    {% include 'frontend/layout/headers/default.html.twig' %}
+{% endblock %}
+{% block body %}
+
+{% endblock %}
+{% block footer %}
+    {% include 'frontend/layout/footer.html.twig' %}
+{% endblock %}
+
+{% block schemas %}
+    <script type="application/ld+json">
+        {{ organizationSchema | raw }}
+    </script>
+{% endblock %}
+
+<span style="opacity: 0; display:none; visibility: hidden" id="bn-data"
+      data-bn-domain="{{ app.request.schemeAndHttpHost }}" data-bn-type="{% block pageType %}{% endblock %}"
+      data-bn-page="{% block pageName %}{% endblock %}">
+</span>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app', null, 'frontend') }}
+{% endblock %}
+</body>

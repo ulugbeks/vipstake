@@ -1,0 +1,17 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/listing.html.twig' as table %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+
+{% block head_buttons %}
+ {{ button.add(path('admin_page_add')) }}
+    {% if isArchive is defined and isArchive %}
+        {{ button.arhive(path('admin_page'), true) }}
+    {% else %}
+        {{ button.arhive(path('admin_page_archive')) }}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ table.listing(pages, ['id', 'title', 'author.name', 'createdAt'], isArchive ?? false) }}
+{% endblock %}

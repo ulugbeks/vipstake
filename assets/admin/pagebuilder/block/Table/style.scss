@@ -1,0 +1,264 @@
+$purple: linear-gradient(90deg, #3B5EFF 25.36%, #A09EFF 49.29%, #A838FF 73.22%);
+$red: linear-gradient(90deg, #FE5A14 25.36%, #FFBC3B 50.04%, #FF1919 73.22%);
+$green: linear-gradient(90deg, #2EA380 8.91%, #BFD755 47.84%, #88D11D 92.77%);
+$pink: linear-gradient(90deg, #E1126E 2.22%, #FF996E 52.07%, #FF4A4A 80.55%);
+$orange: linear-gradient(90deg, #E1126E 2.22%, #FF996E 52.07%, #FF4A4A 80.55%);
+
+$colors: (
+        $red,
+        $purple,
+        $orange,
+        $green,
+        $pink
+);
+
+.pb__table-block {
+  margin-bottom: 24px;
+
+  &:not(.focused) {
+    .table__add {
+      display: none !important;
+    }
+
+    .pb__table-settings {
+      display: none !important;
+    }
+  }
+}
+
+.table__area {
+  position: relative;
+}
+
+.table-content {
+  padding-right: 40px;
+
+  table {
+    margin-bottom: 14px !important;
+  }
+}
+
+.table__add {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.table__add-col {
+  right: 4px;
+  top: 10px;
+  position: absolute;
+}
+
+.pb__table-controls {
+  margin-bottom: 10px;
+}
+
+.pb__table-settings {
+  position: relative;
+
+  &.opened {
+    .pb__table-settings-button {
+      background: rgb(75, 158, 169);
+
+      svg {
+        fill: #fff
+      }
+    }
+
+    .pb__table-settings-window {
+      display: block;
+    }
+  }
+}
+
+.pb__table-settings-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e4e3e3;
+  background: 0;
+  display: block;
+  padding: 7px;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, .1);
+  border-radius: 8px;
+
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.pb__table-settings-window {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, .15);
+  min-width: 220px;
+  display: none;
+  z-index: 99;
+  border-radius: 4px;
+
+  .label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  select {
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 6px 2px;
+    min-width: 144px;
+    width: 100%;
+  }
+
+  .settings-row {
+    margin-bottom: 10px;
+  }
+}
+
+.cta__pb {
+  table {
+    border-collapse: collapse;
+    text-align: start;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 0;
+    border: 0;
+
+    td {
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 16px;
+      letter-spacing: 0.66px;
+    }
+
+    &.layout-top {
+      tr:first-child {
+        background: #F5F5F5;
+
+        td {
+          color: #727272;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 18px;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      tr:not(:first-child) {
+        border-bottom: 1px solid #F5F5F5 !important;
+      }
+    }
+
+    &.layout-left {
+      tr td:first-child {
+        background: #F5F5F5;
+        color: #727272;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+      }
+
+      tr {
+        td:not(:first-child) {
+          border-right: 1px solid #F5F5F5;
+        }
+      }
+    }
+  }
+
+  table.align-center {
+    tr td:not(:last-child) {
+      text-align: center;
+    }
+
+    tr td:last-child {
+      text-align: right;
+    }
+  }
+
+  table.bold {
+    tr:first-child td {
+      font-weight: 300;
+      font-size: 12px;
+    }
+
+    tr:not(:first-child) {
+      td:first-child {
+        font-weight: 600;
+      }
+    }
+  }
+
+  table.colors-table{
+    tr:first-child{
+      td{
+        font-size: 10px;
+      }
+    }
+
+    & tr:nth-child(5n+2) {
+      & td:first-child {
+        background: $orange;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+
+    & tr:nth-child(5n+3) {
+      & td:first-child {
+        background: $purple;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+
+    & tr:nth-child(5n+4) {
+      & td:first-child {
+        background: $red;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+
+    & tr:nth-child(5n+5) {
+      & td:first-child {
+        background: $green;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+
+    & tr:nth-child(5n+6) {
+      & td:first-child {
+        background: $pink;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+  }
+}

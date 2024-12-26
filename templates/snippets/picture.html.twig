@@ -1,0 +1,6 @@
+<picture>
+    {% if webp %}
+        <source srcset="{{ webp }}">
+    {% endif %}
+    <img {% if lazy %}data-{% endif %}src="{{ url }}" class="{{ classes }} lozad" alt="">
+</picture>

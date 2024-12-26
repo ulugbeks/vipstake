@@ -1,0 +1,25 @@
+{% block variants_collection_row %}
+    <div class="ui__form-row form__filter-variants">
+        {% for child in form %}
+            <div class="form-item">
+                <div id="{{ child.vars.id }}">
+                    <div>
+                        {% for translation in child.translations %}
+                            <div class="field-wrapper">
+                                {% for field in translation %}
+                                    <span class="lang">{{ translation.vars.name | upper }}</span>
+                                    <input
+                                        type="text" id="{{ field.vars.id }}"
+                                        name="{{ field.vars.full_name }}" value="{{ field.vars.data }}">
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+
+                        <input type="text" name="{{ child.apiId.vars.full_name }}" value="{{ child.apiId.vars.data }}">
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

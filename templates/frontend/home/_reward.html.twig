@@ -1,0 +1,33 @@
+<section class="reward">
+    <div class="reward__container container">
+        <ul class=" reward-block">
+            {% for item in fields.rewards.l %}
+            <li class="reward-block__item">
+                <div class="reward-block__check">
+                    <div class="reward-block__check-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" fill="none">
+                            <path d="M8.24984 12.2359L20.1657 0L22 1.88204L8.24984 16L0 7.52949L1.83301 5.64745L8.24984 12.2359Z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+                <p class="reward-block__title">{{ item.caption }}</p>
+                <p class="reward-block__text">{{ item.text }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        <!--     content block-->
+        <div class=" reward-content">
+            <h2 class="reward-content__title">
+                {{ fields.rewards.h | raw }}
+            </h2>
+            <p class="reward-content__text">
+                {{ fields.rewards.t | raw }}
+            </p>
+
+            <a href="/" class="reward-content__btn button red">
+                <span>{{ fields.rewards.b | raw }}</span>
+            </a>
+        </div>
+    </div>
+</section>

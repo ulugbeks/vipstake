@@ -1,0 +1,51 @@
+<section class="faq">
+    <div class="faq__container container">
+        <h2 class="faq__title">Got questions?<br/> <span class="faq__sub-title">We’ve got answers!</span></h2>
+        <ul class="accordion faq__container--accordion">
+            {% for item in fields.faq %}
+                <li class="accordion__item" data-action="accordion-item">
+                    <div class="accordion__item--header" data-action="accordion-header">
+                        <h3 class="accordion__item--header-title">
+                           {{ item.q }}
+                        </h3>
+                        <button class="accordion__item-header--button"></button>
+                    </div>
+                    <div class="accordion__item--content">
+                        <div class="accordion__item--content-wrapper">
+                            <p>
+                                {{ item.a | raw }}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="faq__links">
+            <p class="faq__links-text">Got more questions?<br/> Let’s talk details!</p>
+            <button data-support="true" class="faq__links-button button black"><span>Contact Us</span></button>
+        </div>
+    </div>
+</section>
+<script>
+    const accordionHeader = document.querySelectorAll('[data-action="accordion-header"]');
+    accordionHeader.forEach(header => {
+        header.addEventListener('click', function () {
+            const accordionItem = this.closest('[data-action="accordion-item"]');
+            accordionHeader.forEach(item => {
+                if (item !== this) {
+                    item.classList.remove('show');
+                }
+            });
+
+            const allAccordionItems = document.querySelectorAll('[data-action="accordion-item"]');
+            allAccordionItems.forEach(item => {
+                if (item !== accordionItem) {
+                    item.classList.remove('show');
+                }
+            });
+
+            accordionItem.classList.toggle('show');
+        });
+    });
+</script>

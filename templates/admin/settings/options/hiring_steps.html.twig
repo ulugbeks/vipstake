@@ -1,0 +1,82 @@
+<div class="hiring-steps"
+     data-prototype="{{ include('admin/prototypes/hiring_step.html.twig') | replace({'"' : "'"}) }}">
+    <input type="hidden" name="options[{{ option.id }}]" value="">
+    <label for="">Hiring steps</label>
+    <div class="steps__container">
+        {% for step in option.value | decode %}
+            {{ include('admin/prototypes/hiring_step.html.twig', {'value' : step}) | replace({'__INDEX__' : loop.index0}) | raw }}
+        {% endfor %}
+    </div>
+
+    <div class="add-step">
+      +
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        const proto = $('.hiring-steps').attr('data-prototype');
+
+        $('.add-step').click(function () {
+            const index = $('.steps__container').children().length;
+            let block = proto.replaceAll('__INDEX__', index);
+
+            $(block).appendTo('.steps__container');
+        })
+
+        $(document).on('click', '.hiring__step .delete', function () {
+            $(this).closest('.hiring__step').remove();
+        })
+    })
+</script>
+
+<style>
+    .hiring__step{
+        display: flex;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .hiring__step .thumb{
+        max-width: 92px;
+        width: 92px;
+        height: 92px;
+        min-width: 92px;
+        min-height: 92px;
+        margin-right: 18px;
+    }
+
+    .hiring__step .thumb__window{
+        height: 92px;
+        background: #fff;
+    }
+
+    .hiring__step .thumb__window path{
+        stroke: #000;
+    }
+
+    .hiring__step .meta{
+        width: 100%;
+    }
+
+    .add-step{
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #D8DFF4;
+        border-radius: 50%;
+        font-weight: 600;
+        margin-left: auto;
+        font-size: 18px;
+    }
+
+    .hiring__step .delete{
+        margin-left: auto;
+        margin-top: 18px;
+        cursor: pointer;
+        text-align: right;
+    }
+</style>

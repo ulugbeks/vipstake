@@ -1,0 +1,12 @@
+<div class="pb__level-list-block" id="{{ id }}">
+    <div class="content">
+        <ul class="level-list">
+            {% include 'page_builder/blocks/level_list/prototype.html.twig' with {
+                'heading' : fields.heading.default,
+                'text' : fields.text.default
+            } %}
+        </ul>
+
+        <div class="pb__button-add -black" data-action="add-list-item">+</div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+@use "variables";
+
+.fields {
+  margin-top: 46px;
+}
+
+.field__group {
+  padding-bottom: 24px;
+  border-bottom: 1px solid variables.$border;
+  margin-bottom: 40px;
+
+  .thumb__window{
+    background: #fff;
+
+    svg{
+      path{
+        stroke: #000;
+      }
+    }
+  }
+}
+
+.field__group-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.01em;
+  color: variables.$primaryText;
+  display: flex;
+  align-items: center;
+  margin-bottom: 41px;
+
+  &:before {
+    content: '';
+    display: block;
+    background: #8296AA;
+    border-radius: 1px;
+    width: 4px;
+    height: 26px;
+    margin-right: 12px;
+  }
+}
+
+.field__repeater {
+  padding-bottom: 24px;
+  border-bottom: 0;
+  margin-bottom: 40px;
+}
+
+.field__repeater-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 12px;
+}
+
+.field__repeater-row {
+  &:not(:last-child) {
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 24px;
+  }
+}
+
+.repeater__row-delete{
+  margin-bottom: 10px;
+}
+
+.filter__field {
+  position: relative;
+
+  .delete {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    z-index: 1;
+  }
+
+  input {
+    padding-right: 50px;
+  }
+}

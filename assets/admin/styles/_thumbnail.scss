@@ -1,0 +1,76 @@
+@use "variables";
+
+.thumb__input, .image__input{
+  position: absolute;
+  z-index: -9999;
+  opacity: 0;
+}
+
+.thumb__window{
+  width: 100%;
+  height: 174px;
+  background: variables.$asideInput;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  picture{
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover{
+    .thumb__placeholder{
+      display: flex;
+      background: rgba(255,255,255,.02);
+      //background: linear-gradient(0deg, rgba(27, 35, 42, 0.8), rgba(27, 35, 42, 0.8))
+    }
+  }
+}
+
+.thumb__placeholder{
+  transition: .3s background-color;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px);
+
+  &.uploaded{
+    display: none;
+  }
+}
+
+.thumb__img{
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.ui__image-upload{
+  img{
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  picture{
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

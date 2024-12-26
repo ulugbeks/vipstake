@@ -1,0 +1,16 @@
+{% extends 'frontend/layout/base.html.twig' %}
+
+{% block header %}
+    {% include 'frontend/layout/headers/lobby-header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <main>
+        {% include 'frontend/review/listing/hero.html.twig' %}
+        {% include 'frontend/review/listing/review-cards.html.twig' %}
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('lobby', null, 'frontend') }}
+{% endblock %}

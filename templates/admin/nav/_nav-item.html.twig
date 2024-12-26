@@ -1,0 +1,95 @@
+{% if item.entityType != 'Custom' %}
+    <div class="nav-item__container" data-nav-id="{{ item.index }}">
+        <div class="nav-item">
+            <div class="input-row">
+                <label for="">Title</label>
+                <input type="text" value="{{ item.name }}" name="nav[{{ item.index }}][title]">
+            </div>
+            <div class="nav-item__buttons">
+                <a class="see-page" href="{{ nav_route(item, app.request) }}">See page</a>
+                <button type="button" class="nav-item__delete">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_7724_9917)">
+                            <path d="M1.2 4.00635H14.8" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M5.1328 4.00005V3.63365C5.1328 2.88213 5.43134 2.16139 5.96274 1.62999C6.49414 1.09859 7.21488 0.800049 7.9664 0.800049C8.71791 0.800049 9.43865 1.09859 9.97006 1.62999C10.5015 2.16139 10.8 2.88213 10.8 3.63365V4.00005"
+                                  stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5 8V11" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M9.5 8V11" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M2.79999 6C2.38577 6 2.04999 6.33579 2.04999 6.75V13.6C2.04999 14.2233 2.29758 14.821 2.73829 15.2617C3.179 15.7024 3.77673 15.95 4.39999 15.95H11.6C12.2232 15.95 12.821 15.7024 13.2617 15.2617C13.7024 14.821 13.95 14.2233 13.95 13.6V6.75C13.95 6.33579 13.6142 6 13.2 6C12.7858 6 12.45 6.33579 12.45 6.75V13.6C12.45 13.8254 12.3604 14.0416 12.201 14.201C12.0416 14.3604 11.8254 14.45 11.6 14.45H4.39999C4.17455 14.45 3.95835 14.3604 3.79895 14.201C3.63954 14.0416 3.54999 13.8254 3.54999 13.6V6.75C3.54999 6.33579 3.2142 6 2.79999 6Z"
+                                  fill="#FF4D4F"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_7724_9917">
+                                <rect width="16" height="16" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+            <input type="hidden" name="nav[{{ item.index }}][id]" value="{{ item.entityId }}">
+            <input type="hidden" name="nav[{{ item.index }}][index]" value="{{ item.index }}">
+            <input type="hidden" name="nav[{{ item.index }}][type]" value="{{ item.entityType }}">
+            <input type="hidden" name="nav[{{ item.index }}][parent]" value="">
+            <input type="hidden" name="nav[{{ item.index }}][position]" value="{{ item.position }}">
+            <input type="hidden" name="nav[{{ item.index }}][real_id]" value="{{ item.id }}">
+        </div>
+        <div class="children-container">
+            <div class="drop-zone">
+                {% for child in item.navItems %}
+                    {% include 'admin/nav/_nav-item.html.twig' with {"item": child} %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="nav-item__container" data-nav-id="{{ item.index }}">
+        <div class="nav-item">
+            <div class="input-row">
+                <label for="">Title</label>
+                <input type="text" value="{{ item.name }}" name="nav[{{ item.index }}][title]">
+                <input type="text" value="{{ item.url }}" name="nav[{{ item.index }}][url]">
+            </div>
+            <div class="nav-item__buttons">
+                <button type="button" class="nav-item__delete">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_7724_9917)">
+                            <path d="M1.2 4.00635H14.8" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M5.1328 4.00005V3.63365C5.1328 2.88213 5.43134 2.16139 5.96274 1.62999C6.49414 1.09859 7.21488 0.800049 7.9664 0.800049C8.71791 0.800049 9.43865 1.09859 9.97006 1.62999C10.5015 2.16139 10.8 2.88213 10.8 3.63365V4.00005"
+                                  stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5 8V11" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M9.5 8V11" stroke="#FF4D4F" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M2.79999 6C2.38577 6 2.04999 6.33579 2.04999 6.75V13.6C2.04999 14.2233 2.29758 14.821 2.73829 15.2617C3.179 15.7024 3.77673 15.95 4.39999 15.95H11.6C12.2232 15.95 12.821 15.7024 13.2617 15.2617C13.7024 14.821 13.95 14.2233 13.95 13.6V6.75C13.95 6.33579 13.6142 6 13.2 6C12.7858 6 12.45 6.33579 12.45 6.75V13.6C12.45 13.8254 12.3604 14.0416 12.201 14.201C12.0416 14.3604 11.8254 14.45 11.6 14.45H4.39999C4.17455 14.45 3.95835 14.3604 3.79895 14.201C3.63954 14.0416 3.54999 13.8254 3.54999 13.6V6.75C3.54999 6.33579 3.2142 6 2.79999 6Z"
+                                  fill="#FF4D4F"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_7724_9917">
+                                <rect width="16" height="16" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+            <input type="hidden" name="nav[{{ item.index }}][index]" value="{{ item.index }}">
+            <input type="hidden" name="nav[{{ item.index }}][type]" value="Custom">
+            <input type="hidden" name="nav[{{ item.index }}][parent]" value="">
+            <input type="hidden" name="nav[{{ item.index }}][position]" value="{{ item.position }}">
+            <input type="hidden" name="nav[{{ item.index }}][real_id]" value="{{ item.id }}">
+        </div>
+        <div class="children-container">
+            <div class="drop-zone">
+                {% set index = loop.index %}
+                {% for child in item.navItems %}
+                    {% include 'admin/nav/_nav-item.html.twig' with {"item": child } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

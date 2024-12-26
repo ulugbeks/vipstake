@@ -1,0 +1,14 @@
+//@import "reset";
+@import "ui";
+@import "cta/cta";
+
+#pb-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  border: 2px dashed #000;
+  padding: 30px 0 0;
+}
+
+#pagebuilder-root{
+  color: #000;
+}

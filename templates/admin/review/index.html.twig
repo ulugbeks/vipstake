@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/listing.html.twig' as table %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+
+{% block head_buttons %}
+    {{ button.add(path('admin_review_add')) }}
+    {{ button.custom(path('admin_review_listing_fields'), 'Lobby fields') }}
+{% endblock %}
+
+{% block body %}
+    {{ table.listing(pages, ['id', 'title', 'author.name', 'createdAt'], isArchive ?? false) }}
+{% endblock %}

@@ -1,0 +1,199 @@
+title: "Title"
+button:
+  form:
+    submit: "Submit form"
+  popup: "Popup button"
+  see_more: See More
+bc:
+  home: Home
+  places: Places
+  blog: Blog
+  agencies: Agencies
+article:
+  reading_time: min read
+  recent: Recent Articles
+  all: See All
+  posted: 'Posted on'
+  views: 'Views'
+  read: 'Read Article'
+  last: Last Posts
+  updated: Updated
+  toc: Table of content
+  reviews:
+    label: Customer Reviews
+  top_posts: Top Posts
+profile:
+  top: Top
+  new: New
+  city_country: City / Country
+  connect: Connect
+  next: Next
+  verified: Verified Profile
+  escort_agency: Verified Profile
+  breast: Breast size
+  available_for: Available for
+  outcall: Outcall
+  incall: Incall
+  phones: Phones
+  time_working: Time Working
+  time: Time
+  contacts: Sunday
+  included: Included
+  extra: Extra
+  request: Request
+  request_text: Please input date, time and duration of our personal meeting here.
+  request_date: Select Date
+  request_time: Suggest Time
+  request_duration: Duration
+  request_duration_label: Select Duration
+  fee: My Fee
+  book: Book Now
+place:
+  escorts: Escorts
+  description: Description
+  agencies: Agencies
+  price: Price
+  website: Website
+  country: Country
+  city: City
+  address: Address
+  contact: Contact
+  escort_models: Escort Models
+  schedule: Working Hours
+agencies:
+  label:
+    in: Agencies in
+    plain: Agencies
+filters:
+  label: Filters
+  open: Open filters
+  country: Country
+  city:  City
+  rates: Rates
+  age: Age
+  hour: Hour
+  hours: Hours
+  hair: Hair
+  hair_color: Hair color
+  hair_length: Hair Length
+  public_hair: Public Hair
+  breast: Breast
+  travel: Travel
+  service: Services
+  lang: Languages
+  body: Body
+  height: Height
+  eth_nat: Eth / Nat
+  eth: Ethnicity
+  nat: Nationality
+  preferences: Preferences
+  verified_phone: Verified Phone
+  only_verified_phone: Only verified phone
+  smoker: Smoker
+  piercing: Piercing
+  tattoo: Tattoo
+  eye_color: Eye color
+  orientation: Orientation
+  more: More filters
+
+faq:
+  label: FAQ
+reviews:
+  label: Reviews
+review_form:
+  label: Write Your Review
+  rating: Rating
+  name:
+    label: Name
+    placeholder: Enter your Name
+  email:
+    label: Email
+    placeholder: Enter your Email
+  message:
+    label: Message
+    placeholder: Enter your message
+  cancel: Cancel
+  submit: Submit
+map:
+  girls: Girls on Map
+  places: Places on map
+blog:
+  h1: Our Stories
+search:
+  suggestions: Suggestions
+  more_cities: More Cities
+  cities: Cities
+  placeholder: Find your escort...
+services:
+  all: All Our Services
+new_models:
+  label: New Girl in
+language:
+  label: Language
+footer:
+  stats: Statistics
+  models: Models
+  places: Places
+  meetings: Happy Meetings
+  cookie: "We use cookies to provide you with a better experience. By continuing to browse, you are agreeing to our Privacy Policy"
+chat:
+  online: Online
+  me: chat me
+header:
+  login: Log in
+  register: Registration
+banner:
+  no_credit: No Credit Card. Free Forever
+  default_caption: Find beautiful women here!
+  default_button: Search Now
+reviews_block:
+  label: reviews
+review:
+  city_country: City / Country
+  meeting_length: Meeting length
+  type: Type
+  rate: Rate
+lang_switch:
+  label: Language
+  region: Region
+phone:
+  label: Phone
+  show: Show
+schedule:
+  label: Working Hours
+  monday: Mon
+  tuesday: Tue
+  wednesday: Wed
+  thursday: Thu
+  friday: Fri
+  saturday: Sat
+  sunday: Sun
+  monday_full: Monday
+  tuesday_full: Tuesday
+  wednesday_full: Wednesday
+  thursday_full: Thursday
+  friday_full: Friday
+  saturday_full: Saturday
+  sunday_full: Sunday
+status:
+  top: Top
+  new: New
+socials:
+  label: Social Links
+messengers:
+  label: Messengers
+label:
+  no: No
+  yes: Yes
+profiles:
+  other: Other escort girls in
+escorts:
+  label: Escort In
+
+
+  2023-08-10T18:48:35.830793+00:00] php.CRITICAL: Uncaught Exception: An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "_default" as such route does not exist."). {"exception":"[object] (Twig\\Error\\RuntimeError(code: 0): An exception has been thrown during the rendering of a template (\"Unable to generate a URL for the named route \"_default\" as such route does not exist.\"). at /var/www/ep/templates/frontend/layout/base.html.twig:32)\n[previous exception] [object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Unable to generate a URL for the named route \"_default\" as such route does not exist. at /var/www/ep/vendor/symfony/routing/Generator/CompiledUrlGenerator.php:50)\n[previous exception] [object] (Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException(code: 404): Page not found at /var/www/ep/src/ArgumentResolver/RegionValueResolver.php:52)"} []
+  [2023-08-10T18:48:35.830955+00:00] request.CRITICAL: Uncaught PHP Exception Twig\Error\RuntimeError: "An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "_default" as such route does not exist.")." at /var/www/ep/templates/frontend/layout/base.html.twig line 32 {"exception":"[object] (Twig\\Error\\RuntimeError(code: 0): An exception has been thrown during the rendering of a template (\"Unable to generate a URL for the named route \"_default\" as such route does not exist.\"). at /var/www/ep/templates/frontend/layout/base.html.twig:32)\n[previous exception] [object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Unable to generate a URL for the named route \"_default\" as such route does not exist. at /var/www/ep/vendor/symfony/routing/Generator/CompiledUrlGenerator.php:50)\n[previous exception] [object] (Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException(code: 404): Page not found at /var/www/ep/src/ArgumentResolver/RegionValueResolver.php:52)"} []
+  [2023-08-10T18:48:35.836110+00:00] deprecation.INFO: Deprecated: str_contains(): Passing null to parameter #1 ($haystack) of type string is deprecated {"exception":"[object] (ErrorException(code: 0): Deprecated: str_contains(): Passing null to parameter #1 ($haystack) of type string is deprecated at /var/www/ep/src/Twig/FrontRuntime.php:102)"} []
+  [2023-08-10T18:48:35.836475+00:00] deprecation.INFO: Deprecated: str_contains(): Passing null to parameter #1 ($haystack) of type string is deprecated {"exception":"[object] (ErrorException(code: 0): Deprecated: str_contains(): Passing null to parameter #1 ($haystack) of type string is deprecated at /var/www/ep/src/Twig/FrontRuntime.php:104)"} []
+  [2023-08-10T18:48:35.836632+00:00] request.CRITICAL: Exception thrown when handling an exception (Twig\Error\RuntimeError: An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "_default" as such route does not exist."). at /var/www/ep/templates/frontend/layout/base.html.twig line 32) {"exception":"[object] (Twig\\Error\\RuntimeError(code: 0): An exception has been thrown during the rendering of a template (\"Unable to generate a URL for the named route \"_default\" as such route does not exist.\"). at /var/www/ep/templates/frontend/layout/base.html.twig:32)\n[previous exception] [object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Unable to generate a URL for the named route \"_default\" as such route does not exist. at /var/www/ep/vendor/symfony/routing/Generator/CompiledUrlGenerator.php:50)"} []
+  [2023-08-10T18:48:35.836694+00:00] php.CRITICAL: Uncaught Exception: An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "_default" as such route does not exist."). {"exception":"[object] (Twig\\Error\\RuntimeError(code: 0): An exception has been thrown during the rendering of a template (\"Unable to generate a URL for the named route \"_default\" as such route does not exist.\"). at /var/www/ep/templates/frontend/layout/base.html.twig:32)\n[previous exception] [object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Unable to generate a URL for the named route \"_default\" as such route does not exist. at /var/www/ep/vendor/symfony/routing/Generator/CompiledUrlGenerator.php:50)\n[previous exception] [object] (Twig\\Error\\RuntimeError(code: 0): An exception has been thrown during the rendering of a template (\"Unable to generate a URL for the named route \"_default\" as such route does not exist.\"). at /var/www/ep/templates/frontend/layout/base.html.twig:32)\n[previous exception] [object] (Symfony\\Component\\Routing\\Exception\\RouteNotFoundException(code: 0): Unable to generate a URL for the named route \"_default\" as such route does not exist. at /var/www/ep/vendor/symfony/routing/Generator/CompiledUrlGenerator.php:50)\n[previous exception] [object] (Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException(code: 404): Page not found at /var/www/ep/src/ArgumentResolver/RegionValueResolver.php:52)"} []

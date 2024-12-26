@@ -1,0 +1,21 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+
+{% block head_buttons %}
+    {{ button.custom(path('admin_review_list'), 'Reviews') }}
+{% endblock %}
+
+{% block body %}
+    <form class="ui__form" action="{{ path('admin_review_listing_fields') }}" method="post">
+        {% for option in options %}
+            {% if option_template_exists(option.slug) %}
+                {% include('admin/settings/options/'~option.slug~'.html.twig') with {"option":option} %}
+            {% else %}
+                {% include('admin/settings/options/'~option.type~'.html.twig') %}
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit" class="ui__button-primary">Save</button>
+    </form>
+{% endblock %}

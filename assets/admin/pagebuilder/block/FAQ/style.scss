@@ -1,0 +1,14 @@
+.pb__faq-block{
+  border-bottom: 1px solid #efeded;
+  margin-bottom: 30px;
+}
+
+.not-focused{
+  .pb__faq-block{
+    border: 0;
+  }
+
+  .pb__button-add{
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+<div class='ui__form-row'>
+    <label for="{{ option.slug }}">{{ option.label }}</label>
+
+    <div id="{{ option.slug }}" data-content-editor="{{ option.slug }}">
+
+    </div>
+
+    <input type="hidden" name="options[{{ option.id }}]"
+           data-content-storage="{{ option.slug }}"
+           value="{{ option.value is empty ? '{}' : option.value }}"
+    >
+</div>

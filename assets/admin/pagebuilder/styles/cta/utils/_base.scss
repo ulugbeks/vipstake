@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Duplet;
+    font-style: normal;
+    color: $cl-neutral-400;
+    background-color: $cl-neutral-900;
+    overflow-x: hidden;
+    margin: 0;
+    position: relative;
+    &.white{
+        background-color: #FFFFFF;
+        color: #1B1B1B;
+    }
+
+}
+
+main {
+    position: relative;
+    width: 100%;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+}
+
+
+
+.skeleton{
+    transition: transform 0.15s cubic-bezier(0.11, 0, 0.5, 0);
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, 0) 60%) rgba(117, 117, 117, 0.5);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s loading ease-in-out infinite;
+}
+@keyframes loading {
+    to {
+        background-position-x: -20%;
+    }
+}

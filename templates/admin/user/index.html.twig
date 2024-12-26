@@ -1,0 +1,6 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/listing.html.twig' as table %}
+
+{% block body %}
+   {{ table.listing(users, ['email', 'roles']) }}
+{% endblock %}

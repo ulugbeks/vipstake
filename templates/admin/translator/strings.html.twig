@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/translator/strings.html.twig' as parser %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% block head_buttons %}
+    {{ button.arhive(path('admin_translation_strings_lingvanex'), false, 'Autotranslate') }}
+{% endblock %}
+
+{% block body %}
+    <form class="ui__form string-translation__form" action="{{ path('admin_translation_strings') }}" method="post">
+        {% for slug,translations in options %}
+            <div class="ui__form-row">
+                <h2 class="field__group-name" for="">{{ slug | replace({'_' : ' '}) | ucwords }}</h2>
+                {{ parser.parse(translations, slug) }}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="ui__button-primary">Save</button>
+    </form>
+{% endblock %}
+
+{% macro parse(field, slug, name = null) %}
+    {% if name is not empty %}
+        {% set path = name ~ "|" ~ slug %}
+    {% else %}
+        {% set path = slug %}
+    {% endif %}
+
+    {% for k, v in field %}
+        {% if v is not iterable %}
+            {% if k == 'en' %}
+                <label style="font-weight: 500;" for="">{{ slug | upper }}</label>
+            {% endif %}
+            <div class="string-input">
+                <div class="lang">
+                    {{ k | upper }}
+                </div>
+
+                <input name="translations[{{ k }}]{{ get_string_slug(path) }}" value="{{ v }}">
+            </div>
+        {% else %}
+            {{ parser.parse(v, k, path) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

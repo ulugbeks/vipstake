@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+{% import "admin/elements/lang-forms.html.twig" as a2lixTranslations %}
+{% import 'admin/elements/lang-switcher.html.twig' as switcher %}
+
+{% block body %}
+    {{ form_start(navForm, {'attr': {'class': 'ui__form'}}) }}
+    <div class="ui__form-row">
+        {{ form_row(navForm.name) }}
+    </div>
+
+    <div class="ui__2-col --inverse nav-menu-edit">
+        <div class="ui__2-col--main">
+            {{ form_row(navForm.items) }}
+        </div>
+
+        <div class="ui__2-col--aside">
+            <div class="drop-area nav__drop-area">
+                {% if items is defined %}
+                    {% for item in items %}
+                        {% include 'admin/nav/_nav-item.html.twig' with {'item': item} %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% include 'admin/elements/form-controls.html.twig' with {'entity' : navForm.vars.data} %}
+        </div>
+    </div>
+    {{ form_end(navForm) }}
+{% endblock %}

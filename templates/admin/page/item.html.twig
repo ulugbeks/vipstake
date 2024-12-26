@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+{% import "admin/elements/lang-forms.html.twig" as a2lixTranslations %}
+{% import 'admin/elements/lang-switcher.html.twig' as switcher %}
+
+{% block sticky %}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(pageForm, {'attr': {'class': 'ui__form'}}) }}
+    <div class="ui__2-col">
+        <div class="ui__2-col--main">
+            {{ form_row(pageForm.title, {'attr': {'class': 'ui__form-row'}}) }}
+
+            <div class="ui__form-row">
+                {{ form_row(pageForm.content) }}
+            </div>
+
+            {% if fields is defined %}
+                <div class="fields">
+                    {% include 'admin/field_generator/generator.html.twig' with { 'fieldsForm': fields } %}
+                </div>
+            {% endif %}
+
+            {% include 'admin/elements/seo.html.twig' with {'form': pageForm} %}
+        </div>
+        <div class="ui__2-col--aside">
+            {{ form_row(pageForm.slug, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(pageForm.status, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(pageForm.createdAt, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(pageForm.author, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(pageForm.template, {'attr': {'class': 'ui__form-row'}}) }}
+
+            {{ form_row(pageForm.thumbnail, {'attr': {'data': pageForm.vars.data.thumbnail ?? ''}}) }}
+
+            {% include 'admin/elements/form-controls.html.twig' with {'entity' : pageForm.vars.data} %}
+        </div>
+    </div>
+
+    {{ form_end(pageForm) }}
+{% endblock %}

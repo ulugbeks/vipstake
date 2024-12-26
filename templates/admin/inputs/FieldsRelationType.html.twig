@@ -1,0 +1,59 @@
+{% block fields_relation_row %}
+    {% set isFirstRendered = false %}
+    <div class="ui__form-row">
+        <label for="{{ full_name }}">{{ label }}</label>
+        <select class="fields__relation-select" name="{{ full_name }}" id="{{ full_name }}">
+            {% for group_label, choices in choices %}
+                {% if group_label is not empty %}
+                    <optgroup label="{{ group_label }}" class="{{ isFirstRendered ? 'hidden' }}">
+                {% endif %}
+                {% for choice in choices %}
+                    <option {% if data == choice.value %}selected{% endif%} value="{{ choice.value }}">{{ choice.label|raw }}</option>
+                {% endfor %}
+                {% if group_label is not empty %}
+                    </optgroup>
+                {% endif %}
+                {% set isFirstRendered = true %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <script type="application/javascript">
+        // Get both select elements by class name
+        const relationTypeSelect = document.querySelector('.fields__relation-type');
+        const relationValueSelect = document.querySelector('.fields__relation-select');
+
+        const initialLabel = relationTypeSelect.options[relationTypeSelect.selectedIndex].value;
+
+        for (const optgroup of relationValueSelect.getElementsByTagName('optgroup')) {
+            if (optgroup.label === initialLabel) {
+                optgroup.classList.remove('hidden');
+                // optgroup.querySelector('option').selected = true;
+            }
+            else {
+                optgroup.classList.add('hidden');
+            }
+        }
+
+        // Listen for changes on the first select element
+        relationTypeSelect.addEventListener('change', function() {
+
+            // Get the selected option group label
+            const selectedLabel = relationTypeSelect.options[relationTypeSelect.selectedIndex].value
+
+            // Loop through all option groups in the second select element
+            for (const optgroup of relationValueSelect.getElementsByTagName('optgroup')) {
+
+                // If the option group label matches the selected label, remove the 'hidden' class
+                if (optgroup.label === selectedLabel) {
+                    optgroup.classList.remove('hidden');
+                    optgroup.querySelector('option').selected = true;
+                }
+                // Otherwise, add the 'hidden' class
+                else {
+                    optgroup.classList.add('hidden');
+                }
+            }
+        });
+    </script>
+{% endblock %}

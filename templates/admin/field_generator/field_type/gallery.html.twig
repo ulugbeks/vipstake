@@ -1,0 +1,8 @@
+{% if field is defined %}
+    <div class="ui__form-row gg_gallery-field" data-gallery="{{ field.vars.id }}">
+        <label for="{{ field.vars.id }}">{{ field.vars.label }}</label>
+        <input type="file" class="filepond" multiple>
+
+        <input class="gg_gallery" value="{{ value }}" type="hidden" name="{{ field.vars.full_name }}">
+    </div>
+{% endif %}

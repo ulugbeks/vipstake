@@ -1,0 +1,49 @@
+{% block nav_row %}
+    <div class="ui__form-row">
+        <label for="{{ full_name }}">{{ label }}</label>
+        {% for group_label, choices in choices %}
+            <div class="nav__entity-group" data-nav-group="{{ group_label }}">
+                <div class="label">{{ group_label }}</div>
+                <div class="nav__entity-list">
+                    {% for choice in choices %}
+                        <div class="nav__entity-item">
+                            <input class="checkbox" id="{{ group_label }}-{{ choice.value }}" value="{{ choice_val(group_label, choice.value) }}"
+                                   name="{{ group_label }}-{{ choice.value }}" type="checkbox">
+                            <label for="{{ group_label }}-{{ choice.value }}">{{ choice.label|raw }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button class="nav__entity-add">
+                    Add items
+                </button>
+            </div>
+        {% endfor %}
+
+        <div class="nav__entity-group">
+            <div class="label">Custom link</div>
+            <label for="">Title</label>
+            <input type="text" name="custom-title">
+            <label for="">Url</label>
+            <input type="text" name="custom-url">
+
+            <button class="nav__entity-add --custom">
+                Add item
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+{# <select class="fields__relation-select" name="{{ full_name }}" id="{{ full_name }}"> #}
+{#    {% for group_label, choices in choices %} #}
+{#        {% if group_label is not empty %} #}
+{#            <optgroup label="{{ group_label }}" class=""> #}
+{#        {% endif %} #}
+{#        {% for choice in choices %} #}
+{#            <option {% if data == choice.value %}selected{% endif%} value="{{ choice.value }}">{{ choice.label|raw }}</option> #}
+{#        {% endfor %} #}
+{#        {% if group_label is not empty %} #}
+{#            </optgroup> #}
+{#        {% endif %} #}
+{#    {% endfor %} #}
+{# </select> #}

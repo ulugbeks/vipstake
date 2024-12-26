@@ -1,0 +1,15 @@
+{% macro langSwitcher(form) %}
+    <ul class="a2lix_translationsLocales nav nav-tabs ui__lang-switcher" role="tablist">
+        {% for translationsFields in form %}
+            {% set locale = translationsFields.vars.name %}
+                <li data-locale="{{ locale }}"
+                   class="toggle-lang nav-link {% if app.request.locale == locale %}show{% endif %}" data-toggle="tab"
+                   role="tab" value="{{ locale }}">
+                    {{ translationsFields.vars.label|default(locale|humanize)|trans }}
+                    {% if form.vars.default_locale == locale %}{{ ''|trans }}{% endif %}
+                    {% if translationsFields.vars.required %}*{% endif %}
+                </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+

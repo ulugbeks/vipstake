@@ -1,0 +1,31 @@
+<div id="{{ id }}">
+    <div class="pb__table-controls">
+        <div class="pb__table-settings">
+            <button class="pb__table-settings-button add-slider" title="Add slider">
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="14.4976" y1="0.515869" x2="14.4976" y2="16.6324" stroke="black" stroke-width="5"/>
+                    <line x1="16.4092" y1="14.7205" x2="0.292687" y2="14.7205" stroke="black" stroke-width="5"/>
+                    <line x1="14.0557" y1="28.4843" x2="14.0557" y2="12.3678" stroke="black" stroke-width="5"/>
+                    <line x1="12.1445" y1="14.2793" x2="28.261" y2="14.2793" stroke="black" stroke-width="5"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <ol class="ordered list-slider" contenteditable="true">
+        <li>{{ fields.ol.default }}</li>
+    </ol>
+
+    <div class="slider-window-overlay" style="display: none">
+        <div class="sliderWindow">
+            <div class="close">&times;</div>
+            <h2>New Slider</h2>
+            <div class="slider-content">
+
+            </div>
+            <button class="pb__button-add -black slider__add-slide">+</button>
+
+            <button class="slider__save">Insert</button>
+        </div>
+    </div>
+</div>

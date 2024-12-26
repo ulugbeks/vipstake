@@ -1,0 +1,57 @@
+{% block faq_row %}
+    <div class="faq" data-prototype="{{ include('admin/prototypes/faq.html.twig') | replace({"'" : '"'}) }}">
+        <h2 class="field__group-name">FAQ</h2>
+        <div class="faq__container">
+            {% for item in value %}
+                {{ include('admin/prototypes/faq.html.twig', {'item' : item }) | replace({'__INDEX__' : loop.index0}) | raw }}
+            {% endfor %}
+        </div>
+
+
+        <div class="add-item">
+            +
+        </div>
+    </div>
+
+    <script>
+        const prototype = $('.faq').attr('data-prototype');
+
+        $('.add-item').click(function () {
+            const index = $('.faq__container').children().length;
+            let item = prototype.replaceAll('__INDEX__', index);
+            $(item).appendTo('.faq__container');
+        })
+
+        $(document).on('click', '.faq .delete', function () {
+            $(this).closest('.faq__item').remove();
+        })
+    </script>
+
+    <style>
+        .faq__item {
+            padding-bottom: 18px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 24px;
+        }
+
+        .faq .add-item {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #D8DFF4;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-left: auto;
+            font-size: 18px;
+        }
+
+        .faq .delete {
+            margin-left: auto;
+            margin-top: 18px;
+            cursor: pointer;
+            text-align: right;
+        }
+    </style>
+{% endblock %}

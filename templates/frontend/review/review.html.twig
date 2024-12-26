@@ -1,0 +1,136 @@
+{% extends 'frontend/layout/base.html.twig' %}
+
+{% block body_class %}cta__header-styles white{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{ encore_entry_script_tags('cta', null, 'frontend') }}
+{% endblock %}
+
+{% block header %}
+    {% include 'frontend/layout/headers/review-header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <main class="">
+        <div class="cta-header-scroll" style="transform: translateY(-100%);">
+            <div class="cta-header-scroll__box">
+                <img class="cta-header-scroll__box-img" src="{{ uploaded_asset(review.thumbnail) }}" alt="logo casino">
+                <div class="cta-header-scroll__box-info">
+                    <h2 class="cta-header-scroll__box-title">{{ review.title }}</h2>
+                    <p class="cta-header-scroll__box-rating">{{ review.rating }} <span>/ 5</span></p>
+                </div>
+            </div>
+            <a href="{{ review.siteUrl }}" class="button red"><span>Visit site</span></a>
+        </div>
+
+        <div class="cta-links">
+            <ul class="cta-links__container">
+                {% for link in content.toc %}
+                    <li><a href="#{{ link.url }}">{{ link.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <!-- ! content section-->
+        <section class="container cta__container">
+            <!--  !  block 1-->
+            <aside class="cta-aside">
+                <div class="cta-aside--box">
+                    <div class="cta-aside--header">
+                        <img class="cta-aside--header-img" src="{{ uploaded_asset(review.thumbnail) }}"
+                             alt="logo casino">
+                        <div class="cta-aside--header-info">
+                            <h1 class="cta-aside--header-title">{{ review.title }}</h1>
+                            <p class="cta-aside--header-desc">VIP Casino Program Review</p>
+                            <div class="cta-aside--header-info-bottom">
+                                <p class="cta-aside--header-rating">{{ review.rating }} <span>/ 5</span></p>
+                                <p class="cta-aside--header-date">Updated:
+                                    <span>{{ review.updatedAt | date('M, Y') }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-aside--offer">
+                        <p class="cta-aside--offer-title">{{ review.callToAction | raw }}</p>
+                        <a href="{{ review.siteUrl }}" target="_blank" rel="nofollow"
+                           class="cta-aside--offer-button button red"><span>Visit site</span></a>
+                    </div>
+                </div>
+                <table class="cta-aside--table">
+                    <tbody>
+                    <tr>
+                        <td class="cta-aside--table--label">Exclusive promos:</td>
+                        <td class="cta-aside--table--cell">{{ review.exclusivePromos }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Payouts:</td>
+                        <td class="cta-aside--table--cell">{{ review.payouts }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Deposit Limits:</td>
+                        <td class="cta-aside--table--cell">{{ review.depositLimits }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Personal VIP Manager:</td>
+                        <td class="cta-aside--table--cell">{{ review.personalVipManager }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Gifts &amp; Rewards:</td>
+                        <td class="cta-aside--table--cell">{{ review.giftAndRewards }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Invitations to Events:</td>
+                        <td class="cta-aside--table--cell">{{ review.eventsInvitations }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Security &amp; Safety:</td>
+                        <td class="cta-aside--table--cell">{{ review.security }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Game Variety:</td>
+                        <td class="cta-aside--table--cell">{{ review.gameVariety }}</td>
+                    </tr>
+                    <tr>
+                        <td class="cta-aside--table--label">Customer Support:</td>
+                        <td class="cta-aside--table--cell">{{ review.customerSupport }}</td>
+                    </tr>
+                    <tr data-target="promo-code">
+                        <td class="cta-aside--table--label">Promo-code:</td>
+                        <td class="cta-aside--table--cell">
+                            <div class="cta-aside-table--cell--promo-code">
+                                <p data-target="buttonText">{{ review.promoCode }}</p>
+                                <button data-action="copyButton" type="button"
+                                        class="cta-aside-table--cell--promo-code--button">
+                                    <svg data-target="copyIcon" xmlns="http://www.w3.org/2000/svg" width="20"
+                                         height="20" viewBox="0 0 20 20" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M7 9.16667C7 7.97005 7.97005 7 9.16667 7H16.6667C17.8633 7 18.8333 7.97005 18.8333 9.16667V16.6667C18.8333 17.8633 17.8633 18.8333 16.6667 18.8333H9.16667C7.97005 18.8333 7 17.8633 7 16.6667V9.16667Z"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M3.33268 2.16663C3.02326 2.16663 2.72652 2.28954 2.50772 2.50833C2.28893 2.72713 2.16602 3.02387 2.16602 3.33329V10.8333C2.16602 11.1427 2.28893 11.4395 2.50772 11.6583C2.72652 11.877 3.02326 12 3.33268 12H4.16602C4.44216 12 4.66602 12.2238 4.66602 12.5C4.66602 12.7761 4.44216 13 4.16602 13H3.33268C2.75805 13 2.20695 12.7717 1.80062 12.3654C1.39429 11.959 1.16602 11.4079 1.16602 10.8333V3.33329C1.16602 2.75866 1.39429 2.20756 1.80062 1.80123C2.20695 1.3949 2.75805 1.16663 3.33268 1.16663H10.8327C11.4073 1.16663 11.9584 1.3949 12.3647 1.80123C12.7711 2.20756 12.9993 2.75866 12.9993 3.33329V4.16663C12.9993 4.44277 12.7755 4.66663 12.4993 4.66663C12.2232 4.66663 11.9993 4.44277 11.9993 4.16663V3.33329C11.9993 3.02387 11.8764 2.72713 11.6576 2.50833C11.4388 2.28954 11.1421 2.16663 10.8327 2.16663H3.33268Z"></path>
+
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </aside>
+
+            <!--  !  block 2-->
+            <div class="сta__content">
+                <p class="cta--date">Updated:<span>{{ review.updatedAt | date('M, Y') }}</span></p>
+                <div class="cta">
+                    {{ content.html | raw }}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

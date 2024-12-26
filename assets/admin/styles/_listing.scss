@@ -1,0 +1,86 @@
+@use 'variables';
+
+.ui__listing{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-radius: 8px 8px 0px 0px;
+  overflow: hidden;
+}
+
+.ui__listing-head{
+  background: variables.$sideNav;
+  border-bottom: 1px solid variables.$border;
+}
+
+.ui__listing-th{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: variables.$secondaryText;
+  padding: 10px 12px;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.ui__listing-item{
+  padding: 12px;
+  border-bottom: 1px solid variables.$border;
+  transition: all .3s;
+  background: #fff;
+
+  &:hover{
+    background: variables.$button;
+  }
+}
+
+.ui__listing-cell{
+  padding: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: variables.$secondaryText;
+}
+
+.ui__listing-edit{
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ui__listing-button{
+  padding: 12px 20px;
+  border-radius: 200px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 40px;
+
+  svg{
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+  }
+
+  .label{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: variables.$secondaryText;
+    margin-left: 13px;
+    margin-bottom: -2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  &.hover{
+    background: #fff;
+
+    .label{
+      opacity: 1;
+    }
+  }
+}
+

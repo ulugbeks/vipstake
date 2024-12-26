@@ -1,0 +1,71 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/translator/strings.html.twig' as parser %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% block head_buttons %}
+    {{ button.arhive(path('admin_translation_strings'), false, 'Strings') }}
+    {{ button.arhive(path('admin_translation_log'), false, 'Log') }}
+    {{ button.arhive(path('admin_translations_glossary'), false, 'Glossary') }}
+{% endblock %}
+
+{% block body %}
+    <div class="ui__form-row">
+        <div class="ui__form">
+            <select class="filter__category">
+                <option value="">All</option>
+                {% for item in statuses %}
+                    <option value="{{ item.value }}" {% if item.value == app.request.get('filter') %}selected{% endif %}>
+                        {{ item.label }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <table class="ui__listing">
+        <thead class="ui__listing-head">
+        <tr>
+            <th class="ui__listing-th">
+                ID
+            </th>
+            <th class="ui__listing-th">
+                Name
+            </th>
+            <th class="ui__listing-th">
+                Type
+            </th>
+            <th class="ui__listing-th">
+                Status
+            </th>
+        </tr>
+        </thead>
+
+
+        <tbody class="ui__listing-items">
+        {% for task in tasks %}
+            <tr class="ui__listing-item">
+                <td class="ui__listing-cell">
+                    {{ task.id }}
+                </td>
+                <td class="ui__listing-cell">
+                    {{ task.title }}
+                </td>
+                <td class="ui__listing-cell">
+                    {{ task.type }}
+                </td>
+                <td class="status">
+                    <span class="{{ task.status }} status-label">{{ task.status | upper }}</span>
+                    <span class="task-error">
+                        {% for error in task.translationErrors %}
+                            {{ error.message }}
+                        {% endfor %}
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {{ pagerfanta(tasks) }}
+{% endblock %}
+

@@ -1,0 +1,15 @@
+<section class="accordion__item" data-action="accordion-item" id="s-{{ data.heading | toc }}">
+    <div class="accordion__item--header" data-action="accordion-header">
+        <h2 class="accordion__item--header-title" id="{{ data.heading | toc }}">
+            {{ data.heading }}
+        </h2>
+        <button class="accordion__item-header--button"></button>
+    </div>
+    <div class="accordion__item--content">
+        <div class="accordion__item--content-wrapper">
+            {% for block in data.content %}
+               {{ block | raw }}
+            {% endfor %}
+        </div>
+    </div>
+</section>

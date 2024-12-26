@@ -1,0 +1,72 @@
+<div id="pagebuilder-root">
+    <div id="pb-container">
+        <div id="pb-content">
+
+        </div>
+        <div class="pb__add-container">
+            <button id="pb-bottom-add" class=pb__add-layout>
+                +
+            </button>
+        </div>
+    </div>
+
+    {% include 'page_builder/windows/layout-window.html.twig' %}
+    {% include 'page_builder/windows/block-window.html.twig' %}
+
+    <div id="textOptions" class="pb__context-menu -horizontal">
+        <button id="boldOption">Bold</button>
+        <button id="linkOption">Link</button>
+    </div>
+
+    <div class="pb__block-controls -horizontal" id="blockTools" style="display:none;">
+        <button id="blockUp">
+            <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="2.52513" y1="20.2027" x2="20.2028" y2="2.52507" stroke="black" stroke-width="7"/>
+                <line x1="15.4749" y1="2.52513" x2="33.1525" y2="20.2028" stroke="black" stroke-width="7"/>
+            </svg>
+        </button>
+        <button id="blockDown">
+            <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="33.1526" y1="2.475" x2="15.4749" y2="20.1527" stroke="black" stroke-width="7"/>
+                <line x1="20.2029" y1="20.1526" x2="2.52519" y2="2.47494" stroke="black" stroke-width="7"/>
+            </svg>
+        </button>
+        <button id="blockDelete">
+            <svg width="25" height="23" viewBox="0 0 25 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="22.321" y1="1.76789" x2="10.9249" y2="13.164" stroke="black" stroke-width="5"/>
+                <line x1="13.6287" y1="13.1639" x2="2.23263" y2="1.7678" stroke="black" stroke-width="5"/>
+                <line x1="2.23223" y1="21.2321" x2="13.6283" y2="9.83603" stroke="black" stroke-width="5"/>
+                <line x1="10.925" y1="9.83611" x2="22.3211" y2="21.2322" stroke="black" stroke-width="5"/>
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="pb__block-controls -horizontal -centered" id="layoutTools" style="display:none;">
+        <button id="layoutUp">
+            <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="2.52513" y1="20.2027" x2="20.2028" y2="2.52507" stroke="black" stroke-width="7"/>
+                <line x1="15.4749" y1="2.52513" x2="33.1525" y2="20.2028" stroke="black" stroke-width="7"/>
+            </svg>
+        </button>
+        <button id="layoutDown">
+            <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="33.1526" y1="2.475" x2="15.4749" y2="20.1527" stroke="black" stroke-width="7"/>
+                <line x1="20.2029" y1="20.1526" x2="2.52519" y2="2.47494" stroke="black" stroke-width="7"/>
+            </svg>
+        </button>
+        <button id="layoutDelete">
+            <svg width="25" height="23" viewBox="0 0 25 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="22.321" y1="1.76789" x2="10.9249" y2="13.164" stroke="black" stroke-width="5"/>
+                <line x1="13.6287" y1="13.1639" x2="2.23263" y2="1.7678" stroke="black" stroke-width="5"/>
+                <line x1="2.23223" y1="21.2321" x2="13.6283" y2="9.83603" stroke="black" stroke-width="5"/>
+                <line x1="10.925" y1="9.83611" x2="22.3211" y2="21.2322" stroke="black" stroke-width="5"/>
+            </svg>
+        </button>
+    </div>
+
+    <button class="pb__button" id="pb-save" type="button">Update</button>
+</div>
+
+{{ encore_entry_link_tags('pagebuilder', null, 'admin') }}
+{{ encore_entry_script_tags('pagebuilder', null, 'admin') }}

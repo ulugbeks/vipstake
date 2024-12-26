@@ -1,0 +1,100 @@
+{% macro add(route) %}
+    <a href="{{ route }}" class="ui__button-add">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8L14 8" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 2L8 14" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        Add
+    </a>
+{% endmacro %}
+
+{% macro custom(route, text) %}
+    <a href="{{ route }}" class="ui__button-add">
+        {{ text }}
+    </a>
+{% endmacro %}
+
+
+{% macro arhive(route, isArchive = false, text = null) %}
+    <a href="{{ route }}" class="ui__button-archive">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_7724_10520)">
+                <path d="M0.75 3C0.75 1.75736 1.75736 0.75 3 0.75H8H13C14.2426 0.75 15.25 1.75736 15.25 3V13C15.25 14.2426 14.2426 15.25 13 15.25H3C1.75736 15.25 0.75 14.2426 0.75 13V3Z"
+                      stroke="#1890FF" stroke-width="1.5"/>
+                <path d="M0.75 13C0.75 11.7574 1.75736 10.75 3 10.75H4.875C5.08211 10.75 5.25 10.9179 5.25 11.125C5.25 11.7463 5.75368 12.25 6.375 12.25H8H9.625C10.2463 12.25 10.75 11.7463 10.75 11.125C10.75 10.9179 10.9179 10.75 11.125 10.75H13C14.2426 10.75 15.25 11.7574 15.25 13C15.25 14.2426 14.2426 15.25 13 15.25H3C1.75736 15.25 0.75 14.2426 0.75 13Z"
+                      stroke="#1890FF" stroke-width="1.5"/>
+                <path d="M4.00006 4.5H12.0001" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M4.00006 7.5H12.0001" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+            <defs>
+                <clipPath id="clip0_7724_10520">
+                    <rect width="16" height="16" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>
+
+        {% if text is empty %}
+            {{ isArchive ? 'All' : "Archive" }}
+        {% else %}
+            {{ text }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro select(choices, fields, class, filter) %}
+    <div class="ui__form">
+        <select class="{{ class }}">
+            <option value="">All</option>
+            {% for item in choices %}
+                {% set value = attribute(item, fields.value) %}
+                <option value="{{ value }}" {% if value == app.request.get(filter) %}selected{% endif %}>
+                    {% if '.' in fields.label %}
+                        {% set subItemMethod = fields.label | split('.') %}
+                        {% set value = attribute(attribute(item, subItemMethod.0), subItemMethod.1) %}
+                        {{ value }}
+                    {% else %}
+                        {% set value = attribute(item, field) %}
+                        {{ value }}
+                    {% endif %}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+{% endmacro %}
+
+
+{% macro recover() %}
+    <a href="" class="ui__button-recover">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
+            <g id="_01_align_center" data-name="01 align center">
+                <path fill="#8296AA"
+                      d="M12,0A12.03,12.03,0,0,0,4,3.078V0H2V5.143A1.859,1.859,0,0,0,3.857,7H9V5H4.879A9.985,9.985,0,1,1,2,12H0A12,12,0,1,0,12,0Z"/>
+            </g>
+        </svg>
+    </a>
+{% endmacro %}
+
+{% macro new(text, classes = null) %}
+    <button type="button" class="ui__button-add {{ classes }}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8L14 8" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 2L8 14" stroke="#1890FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        {{ text }}
+    </button>
+{% endmacro %}
+
+{% macro preview(path,classes = null, text = 'Preview') %}
+    <a href="{{ path }}" class="ui__button-add {{ classes }}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.28992 7.99993L0.571079 7.78599C0.529531 7.92559 0.52953 8.07426 0.571075 8.21386L1.28992 7.99993ZM14.7102 8.00007L15.429 8.21401C15.4705 8.07441 15.4705 7.92574 15.429 7.78614L14.7102 8.00007ZM2.00875 8.21388C2.77728 5.63169 5.16988 3.75 8.00002 3.75V2.25C4.48816 2.25 1.5237 4.58527 0.571079 7.78599L2.00875 8.21388ZM8.00002 3.75C10.8302 3.75 13.2228 5.63175 13.9913 8.214L15.429 7.78614C14.4764 4.58534 11.5119 2.25 8.00002 2.25V3.75ZM13.9913 7.78612C13.2228 10.3683 10.8302 12.25 8.00006 12.25V13.75C11.5119 13.75 14.4764 11.4147 15.429 8.21401L13.9913 7.78612ZM8.00006 12.25C5.16988 12.25 2.77725 10.3683 2.00876 7.786L0.571075 8.21386C1.52364 11.4147 4.48815 13.75 8.00006 13.75V12.25Z"
+                  fill="#8296AA"/>
+            <path d="M10 8C10 9.10457 9.10457 10 8 10C6.89543 10 6 9.10457 6 8C6 6.89543 6.89543 6 8 6C9.10457 6 10 6.89543 10 8Z"
+                  stroke="#8296AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        {{ text }}
+    </a>
+{% endmacro %}

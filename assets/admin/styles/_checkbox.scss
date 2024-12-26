@@ -1,0 +1,125 @@
+@use "variables";
+
+.switch-item {
+  display: block;
+}
+.switch-item .label {
+  margin-left: 4px;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #000;
+}
+.switch-item ~ .control[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 52px;
+  height: 34px;
+  padding: 3px;
+  border-radius: 34px;
+  background-color: #aaa;
+  vertical-align: middle;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.1, 1.4);
+  border: 1px solid #E8EAED;
+  box-shadow: 1px 1px 7px rgba(0,0,0, .1);
+}
+.switch-item ~ .control[type="checkbox"]:after {
+  content: "";
+  position: relative;
+  display: block;
+  left: 0;
+  width: 60.9%;
+  height: 100%;
+  border-radius: 28px;
+  background-color: #fff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  padding 0.3s ease, margin 0.3s ease;
+  box-sizing: content-box;
+}
+.switch-item ~ .control[type="checkbox"]:active:after {
+  padding-right: 8px;
+}
+.switch-item ~ .control[type="checkbox"]:checked {
+  background-color: #b4c0e2;
+}
+.switch-item ~ .control[type="checkbox"]:checked:after {
+  left: 39.1%;
+}
+.switch-item ~ .control[type="checkbox"]:checked:active:after {
+  margin-left: -8px;
+}
+.switch-item ~ .control[type="checkbox"] ~ .label:before {
+  content: "OFF";
+}
+.switch-item ~ .control[type="checkbox"]:checked ~ .label:before {
+  content: "ON";
+}
+.switch-item ~ .control[type="checkbox"]:disabled {
+  opacity: 0.3;
+}
+.switch-item ~ .control[type="checkbox"]:disabled:active:after {
+  padding-right: 0;
+  margin-left: 0;
+}
+
+.nice-cb{
+  padding: 10px 8px;
+  background: variables.$border;
+  border-radius: 8px;
+  max-height: 185px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+  }
+
+
+  .group-label{
+    font-size: 14px;
+    margin-bottom: 14px;
+    display: block;
+    font-weight: 600;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #d0d0d0;
+  }
+
+  label{
+    display: flex!important;
+    align-items: center;
+    margin-bottom: 10px!important;
+  }
+
+  label:before{
+    content: '';
+    display: flex;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [type=checkbox]:checked + label:before{
+    content: '✓';
+    font-size: 16px;
+  }
+
+  [type=checkbox]{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    top: 0;
+  }
+}

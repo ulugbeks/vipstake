@@ -1,0 +1,19 @@
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+{% if field is defined %}
+    <div class="field__group field__repeater" id="{{ field.vars.id }}">
+        <h2 class="{{ field.field.parent ? 'field__repeater-label' : 'field__group-name' }}">{{ field.vars.label }}</h2>
+
+        <div data-prototype="{{ fields_prototype(field.children) }}">
+
+        </div>
+
+        <div class="field__repeater-fields" id="{{ field.vars.id }}">
+            <div class="field__repeater-container">
+                {{ repeater_row(field) | raw }}
+            </div>
+        </div>
+
+        {{ button.new('Add row', 'add-item') }}
+    </div>
+{% endif %}

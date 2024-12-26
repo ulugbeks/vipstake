@@ -1,0 +1,49 @@
+{% macro partialTranslations(form, fieldsNames) %}
+    {{ form_errors(form) }}
+
+    <div class="a2lix_translations">
+        <div class="a2lix_translationsFields tab-content lang-fields">
+            {% for translationsFields in form %}
+                {% if translationsFields.vars.disabled == false %}
+                {% set locale = translationsFields.vars.name %}
+                <div data-locale="{{ locale }}" id="{{ translationsFields.vars.id }}_a2lix_translations-fields"
+                     class="toggle-lang tab-pane {% if app.request.locale == locale %}show active{% endif %} {% if not form.vars.valid %}sonata-ba-field-error{% endif %}"
+                     role="tabpanel">
+                    {% for translationsField in translationsFields|filter(translationsField => translationsField.vars.name in fieldsNames) %}
+                       <div class="ui__form-row">
+                        {{ form_row(translationsField) }}
+                       </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro partialTranslationsImage(form, fieldsNames, module) %}
+    {{ form_errors(form) }}
+
+    <div class="a2lix_translations">
+        <div class="a2lix_translationsFields tab-content lang-fields">
+            {% for translationsFields in form %}
+                {% set locale = translationsFields.vars.name %}
+                <div class="image-upload-container toggle-lang tab-pane{% if app.request.locale == locale %} show active{% endif %}{% if not form.vars.valid %} sonata-ba-field-error{% endif %}"
+                     role="tabpanel" data-locale="{{ locale }}" data-module="{{ module.id }}"
+                     id="{{ translationsFields.vars.id }}_a2lix_translations-fields">
+                    <div class="preview__container" {% if module is not defined or module.translate(locale, false).image is empty %}style="display: none;"{% endif %}>
+                        <div class="preview__img">
+                            <img class="preview-img"
+                                 src="{% if module is defined and module is not empty %}{{ module.translate(locale, false).image }}{% endif %}"
+                                 id="preview" alt="">
+                        </div>
+                    </div>
+
+                    {% for translationsField in translationsFields|filter(translationsField => translationsField.vars.name in fieldsNames) %}
+                        {{ form_row(translationsField) }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}

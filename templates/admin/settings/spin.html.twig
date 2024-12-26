@@ -1,0 +1,31 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <form method="post" action="" class="ui__form">
+        <div class="ui__form-row">
+        <textarea name="spin" id="" cols="30" rows="10">
+
+        </textarea>
+        </div>
+
+        <button class="ui__button-primary">Test</button>
+    </form>
+
+
+    <div class="test-content" style="margin-top: 200px; background: #fff; padding: 40px;">
+        {% if content is defined and content is not empty %}
+            {{ encore_entry_link_tags('app', null, 'frontend') }}
+            {% include 'frontend/city/_content.html.twig' with {'content' : content} %}
+        {% endif %}
+        {% if faq is defined and faq is not empty %}
+            {% include 'frontend/partials/faq.html.twig' with {'faq' : faq} %}
+        {% endif %}
+    </div>
+
+    <script type="application/javascript">
+        $('.faq__item').on('click', function () {
+            $(this).toggleClass('active');
+            $(this).find('.faq__answer').slideToggle(300);
+        })
+    </script>
+{% endblock %}

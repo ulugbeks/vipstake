@@ -1,0 +1,38 @@
+<div class="hiring__step">
+    <div class="thumb">
+        <div class="ui__form-row">
+            <label for="{{ option.slug }}_image">Icon</label>
+            <div class="ui__image-upload">
+                <div class="thumb__window">
+                    <img src="{{ value.image ?? '' }}" class="thumb__img" alt="">
+                    <div class="thumb__placeholder {{ value.image is defined ? 'uploaded' : '' }}">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.3999 13.8C8.3999 14.7548 8.77919 15.6705 9.45432 16.3456C10.1294 17.0207 11.0451 17.4 11.9999 17.4C12.9547 17.4 13.8704 17.0207 14.5455 16.3456C15.2206 15.6705 15.5999 14.7548 15.5999 13.8C15.5999 12.8452 15.2206 11.9296 14.5455 11.2544C13.8704 10.5793 12.9547 10.2 11.9999 10.2C11.0451 10.2 10.1294 10.5793 9.45432 11.2544C8.77919 11.9296 8.3999 12.8452 8.3999 13.8Z"
+                                  stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22.7999 9C22.7999 8.36348 22.5471 7.75303 22.097 7.30294C21.6469 6.85286 21.0365 6.6 20.4 6.6H16.2V4.2C16.2 3.88174 16.0735 3.57652 15.8485 3.35147C15.6234 3.12643 15.3182 3 15 3H8.99995C8.68169 3 8.37647 3.12643 8.15142 3.35147C7.92638 3.57652 7.79995 3.88174 7.79995 4.2V6.6H3.59995C2.96343 6.6 2.35298 6.85286 1.90289 7.30294C1.45281 7.75303 1.19995 8.36348 1.19995 9V18.6C1.19995 19.2365 1.45281 19.847 1.90289 20.2971C2.35298 20.7471 2.96343 21 3.59995 21H20.4C21.0365 21 21.6469 20.7471 22.097 20.2971C22.5471 19.847 22.7999 19.2365 22.7999 18.6V9Z"
+                                  stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <input class="image__input" value="" type="file"
+                       name="options[{{ option.id }}][__INDEX__][image_upload]">
+                <input type="hidden" value="{{ value.image ?? '' }}" name="options[{{ option.id }}][__INDEX__][image]" id=""
+                       class="image__path">
+            </div>
+        </div>
+    </div>
+    <div class="meta">
+        <div class="ui__form-row">
+            <label for="">Heading</label>
+            <input value="{{ value.heading ?? '' }}" type="text" name="options[{{ option.id }}][__INDEX__][heading]">
+        </div>
+        <div class="ui__form-row">
+            <label for="">Text</label>
+            <textarea name="options[{{ option.id }}][__INDEX__][text]" id="">{{ value.text ?? '' }}</textarea>
+        </div>
+        
+        <div class="delete">
+            <img src="{{ asset('admin/img/trash.svg') }}" alt="">
+        </div>
+    </div>
+</div>

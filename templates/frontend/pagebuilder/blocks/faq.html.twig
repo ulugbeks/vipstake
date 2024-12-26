@@ -1,0 +1,19 @@
+<ul class="accordion ">
+    {% for item in data %}
+        <li class="accordion__item" data-action="accordion-item">
+            <div class="accordion__item--header" data-action="accordion-header">
+                <h3 class="accordion__item--header-title">
+                    {{ item.question }}
+                </h3>
+                <button class="accordion__item-header--button"></button>
+            </div>
+            <div class="accordion__item--content">
+                <div class="accordion__item--content-wrapper">
+                    <p>
+                        {{ item.answer }}
+                    </p>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

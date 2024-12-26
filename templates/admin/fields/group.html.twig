@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    {{ form_start(fieldsGroupForm, {'attr': {'class': 'ui__form'}}) }}
+    <div class="ui__2-col">
+        <div class="ui__2-col--main">
+            {{ form_row(fieldsGroupForm.name, {'attr': {'class': 'ui__form-row'}}) }}
+            {{ form_row(fieldsGroupForm.ruleType, {'attr': {'class': 'ui__form-row fields__relation-type'}}) }}
+            {{ form_row(fieldsGroupForm.ruleValue, {'attr': {'class': 'ui__form-row'}}) }}
+            {% include 'admin/elements/form-controls.html.twig' with {'entity' : fieldsGroupForm.vars.data} %}
+        </div>
+    </div>
+    {{ form_end(fieldsGroupForm) }}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% block editor_row %}
+    <label for="">{{ label }}</label>
+
+    <div id="{{ id }}" data-content-editor="{{ id }}">
+
+    </div>
+
+    <input type="hidden" name="{{ full_name }}"
+           data-content-storage="{{ id }}"
+           value="{{ value is empty ? '{}' : value }}"
+    >
+{% endblock %}

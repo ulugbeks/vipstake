@@ -1,0 +1,164 @@
+<section id="services" class="services">
+    <div class="container"> <!--  TODO: Phone-->
+        <div class="styled-gallery-top">
+            <div class="swiper-container gallery-top swiper-iphone">
+                <div class="swiper-wrapper">
+                    <!--   !   Slide 1-->
+                    <div class="swiper-slide">
+                        <div class="swiper-slide--bg">
+                        </div>
+                        <video width="100%" autoplay muted playsinline>
+                            <source media="(min-width: 1728px)" src="/files/servicesVideo/screen1_1728x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1512px)" src="/files/servicesVideo/screen1_1512x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1280px)" src="/files/servicesVideo/screen1_1280x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1180px)" src="/files/servicesVideo/screen1_1180x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 834px)" src="/files/servicesVideo/screen1_834x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 375px)" src="/files/servicesVideo/screen1_375x2.webm"
+                                    type="video/webm">
+                            <source src="./services/phoneVideosSlides/screen1_375x2.webm" type="video/webm">
+
+                        </video>
+                        <div class="swiper-slide--bg-grad">
+                        </div>
+
+                    </div>
+                    <!--   !   Slide 2-->
+                    <div class="swiper-slide">
+                        <div class="swiper-slide--bg">
+                        </div>
+                        <video width="100%" autoplay muted playsinline>
+                            <source media="(min-width: 1728px)" src="/files/servicesVideo/screen2_1728x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1512px)" src="/files/servicesVideo/screen2_1512x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1280px)" src="/files/servicesVideo/screen2_1280x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1180px)" src="/files/servicesVideo/screen2_1180x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 834px)" src="/files/servicesVideo/screen2_834x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 375px)" src="/files/servicesVideo/screen2_375x2.webm"
+                                    type="video/webm">
+                            <source src="./services/phoneVideosSlides/screen2_375x2.webm" type="video/webm">
+                        </video>
+                        <div class="swiper-slide--bg-grad">
+                        </div>
+                    </div>
+                    <!--   !   Slide 3-->
+                    <div class="swiper-slide">
+                        <div class="swiper-slide--bg">
+                        </div>
+                        <video width="100%" autoplay muted playsinline>
+                            <source media="(min-width: 1728px)" src="/files/servicesVideo/screen3_1728x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1512px)" src="/files/servicesVideo/screen3_1512x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1280px)" src="/files/servicesVideo/screen3_1280x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1180px)" src="/files/servicesVideo/screen3_1180x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 834px)" src="/files/servicesVideo/screen3_834x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 375px)" src="/files/servicesVideo/screen3_375x2.webm"
+                                    type="video/webm">
+                            <source src="./services/phoneVideosSlides/screen3_375x2.webm" type="video/webm">
+                        </video>
+                        <div class="swiper-slide--bg-grad ">
+                        </div>
+                    </div>
+                    <!--   !   Slide 4-->
+                    <div class="swiper-slide">
+                        <div class="swiper-slide--bg">
+                        </div>
+                        <video width="100%" autoplay muted playsinline>
+                            <source media="(min-width: 1728px)" src="/files/servicesVideo/screen4_1728x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1512px)" src="/files/servicesVideo/screen4_1512x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1280px)" src="/files/servicesVideo/screen4_1280x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 1180px)" src="/files/servicesVideo/screen4_1180x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 834px)" src="/files/servicesVideo/screen4_834x2.webm"
+                                    type="video/webm">
+                            <source media="(min-width: 375px)" src="/files/servicesVideo/screen4_375x2.webm"
+                                    type="video/webm">
+                            <source src="./services/phoneVideosSlides/screen4_375x2.webm" type="video/webm">
+                        </video>
+                        <div class="swiper-slide--bg-grad ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  TODO: Thumbs-->
+        <div class="styled-gallery-thumbs">
+            <div class="swiper-container gallery-thumbs">
+                <div class="swiper-wrapper">
+                    {% set lastEl = (fields.services | length) - 1 %}
+                    {% set firstEl = fields.services[0] %}
+
+                    {% for service in fields.services %}
+                        {% if loop.first %}
+                            {% set prev = fields.services[lastEl] %}
+                            {% set next = fields.services[loop.index] %}
+                        {% elseif loop.last %}
+                            {% set prev = fields.services[loop.index0 - 1] %}
+                            {% set next = fields.services[0] %}
+                        {% else %}
+                            {% set prev = fields.services[loop.index0 - 1] %}
+                            {% set next = fields.services[loop.index0 + 1] %}
+                        {% endif %}
+
+                        <div class="swiper-slide">
+                            <div class="swiper-slide-container">
+                                <h2 class="services__title" data-before="{{ prev.c }}"
+                                    data-after="{{ next.c }}">{{ service.c }}</h2>
+                                <p class="services__text">{{ service.t }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <!--     Add Arrows-->
+            <div class="services-slider-nav">
+                <button class="services-slider-nav-prev">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g clip-path="url(#clip0_11729_17390)">
+                            <path
+                                    d="M7.828 13.0285L13.192 18.5456L11.778 20L4 12L11.778 4L13.192 5.45436L7.828 10.9715L20 10.9715V13.0285L7.828 13.0285Z"
+                                    fill="#C01760"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_11729_17390">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <button class="services-slider-nav-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g clip-path="url(#clip0_11729_17394)">
+                            <path
+                                    d="M16.172 10.9715L10.808 5.45436L12.222 4L20 12L12.222 20L10.808 18.5456L16.172 13.0285H4V10.9715H16.172Z"
+                                    fill="#C01760"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_11729_17394">
+                                <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>

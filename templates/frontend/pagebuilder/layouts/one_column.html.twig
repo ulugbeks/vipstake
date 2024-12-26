@@ -1,0 +1,9 @@
+<div class="one-column">
+    {% for column in columns %}
+        <div class="column">
+            {% for block in column %}
+                    {{ block | raw }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

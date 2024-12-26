@@ -1,0 +1,42 @@
+.messages{
+  h2{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .ui__listing{
+    margin-bottom: 32px;
+  }
+}
+
+.message{
+  .window{
+    padding: 40px;
+    background: #fff;
+    border-radius: 32px;
+  }
+
+  h2{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+  .message-photos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    img{
+      max-width: 240px;
+      margin-right: 10px;
+      height: auto;
+    }
+  }
+}

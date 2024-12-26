@@ -1,0 +1,50 @@
+.tab__item{
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  .cb-group{
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px;
+    max-height: 238px;
+    overflow: auto;
+  }
+
+  .cb{
+    display: flex;
+    position: relative;
+    margin-bottom: 4px;
+
+    input{
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    label{
+      display: flex;
+      align-items: center;
+    }
+
+    input + label:before{
+      content: '';
+      width: 18px;
+      height: 18px;
+      border: 1px solid #000;
+      margin-right: 10px;
+    }
+
+    input:checked + label:after{
+      content: '✓';
+      font-weight: 600;
+      font-size: 18px;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+    }
+  }
+}

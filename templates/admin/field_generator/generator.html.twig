@@ -1,0 +1,9 @@
+{% if fieldsForm is defined and fieldsForm is not empty %}
+    <div class="a2lix_translationsFields tab-content lang-fields">
+        <div class="fields-block">
+            {% for field in fieldsForm.fields %}
+                {{ render_field(field) | raw }}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

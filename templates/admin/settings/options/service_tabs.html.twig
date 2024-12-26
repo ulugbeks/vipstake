@@ -1,0 +1,52 @@
+<div class="services__tabs"
+     data-prototype="{{ include('admin/prototypes/service_tab.html.twig', {'services':services}) | replace({'"' : "'"}) }}">
+    <input type="hidden" name="options[{{ option.id }}]" value="">
+    <div class="tabs__container">
+        {% for tab in option.value | decode %}
+            {{ include('admin/prototypes/service_tab.html.twig', {'services':services, 'tab' : tab}) | replace({'__INDEX__' : loop.index0}) | raw }}
+        {% endfor %}
+    </div>
+
+    <div class="add-tab">
+        +
+    </div>
+</div>
+
+<style>
+    .add-tab {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #D8DFF4;
+        border-radius: 50%;
+        font-weight: 600;
+        margin-left: auto;
+        font-size: 18px;
+    }
+
+    .tab__item .delete {
+        display: block;
+        margin-left: auto;
+        margin-top: 18px;
+        cursor: pointer;
+        text-align: right;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        const proto = $('.services__tabs').attr('data-prototype');
+
+        $('.add-tab').click(function () {
+            const index = $('.tabs__container').children().length;
+            let block = proto.replaceAll('__INDEX__', index);
+
+            $(block).appendTo('.tabs__container');
+        })
+
+        $(document).on('click', '.tab__item .delete', function () {
+            $(this).closest('.tab__item').remove();
+        })
+    })
+</script>

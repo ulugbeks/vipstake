@@ -1,0 +1,31 @@
+<ol class="slider-list">
+    {% for line in data %}
+        <li>
+            {{ line.text }}
+
+            {% if line.slider is defined %}
+                <div class="swiper cta-swiper">
+                    <div class="swiper-wrapper">
+                        {% for slide in line.slider %}
+                            <div class="swiper-slide">
+                                <div class="cta-swiper--img-box">
+                                    <div class="cta-swiper--img--wrapper">
+                                        <img class="cta-swiper--img" src="{{ slide.img }}" alt="step1">
+                                    </div>
+                                    <div class="cta-swiper--screen"></div>
+                                </div>
+                                <div class="cta-swiper--box">
+                                    <p class="cta-swiper--label">{{ slide.caption }}</p>
+                                    <p class="cta-swiper--desc">{{ slide.text }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="cta-swiper-pagination-nav">
+                        <div class="cta-swiper-pagination"></div>
+                    </div>
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ol>

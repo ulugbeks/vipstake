@@ -1,0 +1,91 @@
+@use "variables";
+
+.ui__side-nav{
+  background: variables.$sideNav;
+  border-right: 1px solid variables.$border;
+  position: relative;
+
+  .collapse{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 37px;
+    right: -12px;
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid variables.$border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: variables.$sideNav;
+    z-index: 999;
+  }
+
+  .brand{
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    border-bottom: 1px solid variables.$border;
+    margin-bottom: 40px;
+  }
+
+  .company .name{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: variables.$primaryText;
+    max-width: 60%;
+    margin: 0 auto 12px;
+  }
+
+  .company .label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: variables.$secondaryText;
+    text-align: center;
+  }
+}
+
+.ui__navigation{
+  .nav-item{
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 12px;
+    margin-bottom: 8px;
+
+    svg{
+      max-width: 16px;
+    }
+
+    &.active {
+      background: variables.$navHighlight;
+      border-radius: 8px;
+
+      .label{
+        color: variables.$primaryText;
+      }
+
+      svg{
+        .stroke{
+          stroke: variables.$primaryText;
+        }
+
+        .fill{
+          fill: variables.$primaryText;
+        }
+      }
+    }
+  }
+
+  .label{
+    margin-left: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: variables.$navText;
+  }
+}

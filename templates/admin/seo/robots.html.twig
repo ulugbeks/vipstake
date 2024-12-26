@@ -1,0 +1,16 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block sticky %}
+{% endblock %}
+
+{% block body %}
+    <div class="ui__form">
+        <h2 class="field__group-name">Robots.txt</h2>
+        <form action="{{ path('admin_seo_robots') }}" method="post">
+            <div class="ui__form-row">
+                <textarea name="robots" id="" cols="30" rows="10">{{ content }}</textarea>
+            </div>
+            <button class="ui__button-primary" type="submit">Update</button>
+        </form>
+    </div>
+{% endblock %}

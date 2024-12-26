@@ -1,0 +1,6 @@
+{% if field is defined %}
+    <div class="ui__form-row">
+        <label for="{{ field.vars.id }}">{{ field.vars.label }}</label>
+        <textarea class="gg_editor" type="text" name="{{ field.vars.full_name }}">{{ value }}</textarea>
+    </div>
+{% endif %}

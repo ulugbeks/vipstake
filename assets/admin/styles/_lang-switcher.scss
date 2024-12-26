@@ -1,0 +1,28 @@
+@use "variables";
+
+.ui__lang-switcher{
+  display: flex;
+  background: #E8EAED;
+  padding: 3px;
+  border: 1px solid #d0d0d1;
+  border-radius: 6px;
+
+
+  li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 30px;
+    color: #000000;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &.show{
+      background: #b4c0e2;
+    }
+  }
+}

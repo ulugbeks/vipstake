@@ -1,0 +1,68 @@
+{% macro listing(entities, fields, isArchive = false) %}
+    <table class="ui__listing">
+        <thead class="ui__listing-head">
+        {% for field in fields %}
+            <th class="ui__listing-th">
+                {% if '.' in field %}
+                {{ field | split('.')[1] }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            </th>
+        {% endfor %}
+        <th></th>
+        </thead>
+
+
+        <tbody class="ui__listing-items">
+        {% for item in entities %}
+            {% set subItemMethod = 'title' | split('.') %}
+            <tr class="ui__listing-item">
+                {% for field in fields %}
+                    <td class="ui__listing-cell">
+                        {% if '.' in field %}
+                            {% set subItemMethod = field | split('.') %}
+                            {% set value = attribute(attribute(item, subItemMethod.0), subItemMethod.1) %}
+                            {% if value is iterable %}
+                                {{ value.0 }}
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% else %}
+                            {% set value = attribute(item, field) %}
+                            {% if value is iterable %}
+                                {{ value.0 }}
+                                {% elseif value.timestamp is defined %}
+                                    {{ value | date('Y-m-d') }}
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+                <td class="ui__listing-edit ui__listing-cell">
+                    {% if isArchive %}
+                        <a href="{{ recover_url(item) }}" class="ui__button-recover">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
+                                <g id="_01_align_center" data-name="01 align center">
+                                    <path fill="#8296AA" d="M12,0A12.03,12.03,0,0,0,4,3.078V0H2V5.143A1.859,1.859,0,0,0,3.857,7H9V5H4.879A9.985,9.985,0,1,1,2,12H0A12,12,0,1,0,12,0Z"/>
+                                </g>
+                            </svg>
+                            <span class="label">
+                                Recover
+                            </span>
+                        </a>
+                    {% endif %}
+
+
+                    <a href="{{ edit_url(item) }}" class="ui__listing-button">
+                        {{ source('@public_path' ~ '/admin/img/edit.svg') }}
+                        <span class="label">Edit</span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}
+

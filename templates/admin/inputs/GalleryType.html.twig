@@ -1,0 +1,15 @@
+{% block gallery_row %}
+    <style>
+        .filepond--root {
+            background: #ffff;
+            border-radius: 8px;
+        }
+    </style>
+
+    <div class="ui__form-row gg_gallery-field" data-gallery="{{ id }}">
+        <label for="{{ id }}">{{ label }}</label>
+        <input type="file" class="filepond" multiple>
+
+        <input class="gg_gallery" value="{{ value }}" type="hidden" name="{{ full_name }}">
+    </div>
+{% endblock %}

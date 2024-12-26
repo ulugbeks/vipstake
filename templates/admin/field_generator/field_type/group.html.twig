@@ -1,0 +1,9 @@
+{% if field is defined %}
+<div class="field__group">
+    <h2 class="field__group-name">{{ field.vars.label }}</h2>
+
+    {% for child in field.children %}
+        {{ render_field(child) | raw }}
+    {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,15 @@
+<div class="faq__item">
+    <div class="ui__form-row">
+        <label for="">Question</label>
+        <input type="text" id="" value="{{ item.question ?? '' }}" name="faq[__INDEX__][question]">
+    </div>
+
+    <div class="ui__form-row">
+        <label for="">Answer</label>
+        <textarea name="faq[__INDEX__][answer]" id="" cols="30" rows="10">{{ item.answer ?? '' }}</textarea>
+    </div>
+    
+    <div class="delete">
+        <img src="{{ asset('admin/img/trash.svg') }}" alt="">
+    </div>
+</div>

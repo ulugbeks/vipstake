@@ -1,0 +1,15 @@
+<div class="pb__layouts-window" id="pb-layout-add">
+
+    <div class="pb__layouts">
+        <h2>Select layout</h2>
+        <div class="close">&times;</div>
+
+        <div class="pb__layout-variants">
+            {% for layout in pageBuilder.layouts %}
+                <div class="pb__layout-button" data-name="{{ layout.name }}">
+                    {{ layout.label }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin', null, 'admin') }}
+    {% endblock %}
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
+    <script src="{{ asset('admin/js/tinymce/tinymce.min.js') }}"></script>
+</head>
+<body>
+<div id="layout-container">
+    <div id="layout-aside" class="ui__side-nav">
+        {% block aside %}
+            {% include 'admin/layout/aside.html.twig' %}
+        {% endblock %}
+    </div>
+
+    <div class="content {% if block('sticky') is defined %}with-header{% endif %}" id="layout-main">
+        {% if pageName is defined %}
+            <div class="ui__main-head">
+                <h1 class="page-name">{{ pageName ?? 'Page' }}</h1>
+                <div class="buttons">
+                    {% block head_buttons %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if block('sticky') is defined %}
+            <div class="ui__sticky-header">
+                {% set referer =  app.request.headers.get('referer')|default('/') %}
+                <a href="{{ referer }}" class="ui__button-back">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 4L2 7.5L5 11" stroke="#8296AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.5 7.5L14 7.5" stroke="#8296AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+                    Back
+                </a>
+                {{ block('sticky') }}
+            </div>
+        {% endif %}
+
+        {% block body %}
+
+        {% endblock %}
+    </div>
+</div>
+</body>
+
+{% block javascripts %}
+    <script src="{{ asset('admin/js/select2.js') }}"></script>
+    {{ encore_entry_script_tags('admin', null, 'admin') }}
+{% endblock %}
+</html>

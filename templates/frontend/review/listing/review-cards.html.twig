@@ -1,0 +1,9 @@
+<section class="review-lobby--cards ">
+    <h2 class="review-lobby--cards--title">{{ fields.vip_review_h1 | raw }}</h2>
+    <ul class="review-lobby--cards--wrapper container" id="vip-review-container">
+        {% for review in reviews %}
+            {% include 'frontend/review/listing/review-card.html.twig' with {'review' : review, 'index' : loop.index} %}
+        {% endfor %}
+    </ul>
+    <button type="button" id="more-vip-reviews" class="review-lobby--cards__button button black"><span>Load more</span></button>
+</section>

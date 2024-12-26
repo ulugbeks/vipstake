@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+{% import 'admin/elements/listing.html.twig' as table %}
+{% import 'admin/elements/buttons.html.twig' as button %}
+
+
+{% block head_buttons %}
+ {{ button.add(path('admin_fields_add')) }}
+{% endblock %}
+
+{% block body %}
+    {{ table.listing(fields, ['name', 'ruleType', 'ruleValue']) }}
+{% endblock %}

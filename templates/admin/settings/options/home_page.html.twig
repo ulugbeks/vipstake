@@ -1,0 +1,11 @@
+{% set pages = get_pages() %}
+
+<div class="ui__form-row">
+    <label for="">{{ option.label }}</label>
+    <select name="options[{{ option.id }}]" id="">
+        <option disabled value="0">Select Home Page</option>
+        {% for page in pages %}
+            <option {{ page.id == option.value ? 'selected' : '' }} value="{{ page.id }}">{{ page.title }}</option>
+        {% endfor %}
+    </select>
+</div>

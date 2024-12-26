@@ -1,0 +1,19 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <form class="ui__form" action="{{ path('admin_settings_translate') }}" method="post">
+        {% for slug,translations in options %}
+            <div class="ui__form-row">
+                <h2 class="field__group-name" for="">{{ option_label(slug) }}</h2>
+                {% for locale, translation in translations %}
+                    <div style="margin-bottom: 10px;" class="strings__input">
+                        <label style="font-weight: 500;" for="">{{ locale | upper }}</label>
+                        <textarea name="translations[{{ slug }}][{{ locale }}]">{{ translation }}</textarea>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="ui__button-primary">Save</button>
+    </form>
+{% endblock %}

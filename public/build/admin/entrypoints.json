@@ -1,0 +1,20 @@
+{
+  "entrypoints": {
+    "admin": {
+      "css": [
+        "/build/admin/admin.52d11980.css"
+      ],
+      "js": [
+        "/build/admin/admin.7a587c1f.js"
+      ]
+    },
+    "pagebuilder": {
+      "css": [
+        "/build/admin/pagebuilder.a7898088.css"
+      ],
+      "js": [
+        "/build/admin/pagebuilder.4dcdc094.js"
+      ]
+    }
+  }
+}
